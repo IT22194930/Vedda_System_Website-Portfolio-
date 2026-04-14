@@ -730,6 +730,23 @@ a:hover { color: var(--accent-hover); }
   font-weight: 600;
 }
 
+.reference-list {
+  list-style: none;
+  margin-top: 12px;
+  display: grid;
+  gap: 12px;
+}
+
+.reference-item {
+  padding-left: 0;
+  line-height: 1.7;
+  color: var(--sand-700);
+}
+
+.reference-item strong {
+  color: var(--green-700);
+}
+
 .system-diagram-img {
   margin-top: 24px;
   border-radius: 12px;
@@ -1106,11 +1123,18 @@ a:hover { color: var(--accent-hover); }
    =================================================== */
 .about-section { padding-bottom: 80px; }
 
+.supervisor-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 24px;
+  margin-bottom: 48px;
+}
+
 .supervisor-card {
   background: linear-gradient(135deg, var(--green-800), var(--green-700));
   border-radius: 20px;
   padding: 40px;
-  margin-bottom: 48px;
+  margin-bottom: 0;
   color: white;
   display: flex;
   align-items: center;
@@ -1200,10 +1224,21 @@ a:hover { color: var(--accent-hover); }
 
 .team-card__name {
   font-family: var(--font-serif);
-  font-size: 18px;
+  font-size: 17px;
   font-weight: 700;
   color: var(--green-800);
   margin-bottom: 4px;
+  line-height: 1.2;
+  white-space: nowrap;
+  letter-spacing: -0.2px;
+}
+
+.team-card__itnumber {
+  font-size: 18px;
+  font-weight: 800;
+  color: var(--green-800);
+  margin-bottom: 4px;
+  line-height: 1.2;
 }
 
 .team-card__role {
@@ -1511,6 +1546,13 @@ a:hover { color: var(--accent-hover); }
   .milestones-timeline::before { display: none; }
 
   .team-grid { grid-template-columns: 1fr; max-width: 400px; margin: 0 auto; }
+
+  .supervisor-grid { grid-template-columns: 1fr; }
+
+  .team-card__name {
+    white-space: normal;
+    letter-spacing: 0;
+  }
 
   .contact-grid { grid-template-columns: 1fr; }
   .contact-info-card { padding: 32px 24px; }
