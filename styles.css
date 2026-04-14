@@ -553,8 +553,8 @@ a:hover { color: var(--accent-hover); }
 /* Hero scroll indicator */
 .hero__scroll {
   position: absolute;
-  bottom: 110px;
-  left: 50%;
+  bottom: 130px;
+  left: 55%;
   transform: translateX(-50%);
   z-index: 2;
   display: flex;
@@ -1524,6 +1524,23 @@ a:hover { color: var(--accent-hover); }
   .hero__title { font-size: clamp(28px, 8vw, 42px); }
   .hero__abstract { font-size: 16px; }
   .hero__scroll { display: none; }
+
+  .hero {
+    display: block;
+    min-height: auto;
+  }
+
+  .hero__content {
+    padding-top: calc(var(--nav-height) + 20px);
+    padding-bottom: 32px;
+  }
+
+  .hero__stats {
+    position: relative;
+    bottom: auto;
+    left: auto;
+    right: auto;
+  }
 
   .hero__stats-inner { grid-template-columns: repeat(2, 1fr); }
 
