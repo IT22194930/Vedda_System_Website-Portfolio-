@@ -142,7 +142,6 @@ a:hover { color: var(--accent-hover); }
 .navbar__logo {
   width: 40px;
   height: 40px;
-  background: linear-gradient(135deg, var(--green-600), var(--green-400));
   border-radius: 10px;
   display: flex;
   align-items: center;
@@ -1448,7 +1447,6 @@ a:hover { color: var(--accent-hover); }
 .footer__logo {
   width: 36px;
   height: 36px;
-  background: linear-gradient(135deg, var(--green-600), var(--green-400));
   border-radius: 8px;
   display: flex;
   align-items: center;
