@@ -475,7 +475,8 @@ a:hover { color: var(--accent-hover); }
   max-width: var(--container-max);
   margin: 0 auto;
   padding: 0 24px;
-  padding-top: var(--nav-height);
+  padding-top: 80px;
+  padding-bottom: 100px;
 }
 
 .hero__badge {
@@ -487,8 +488,7 @@ a:hover { color: var(--accent-hover); }
   backdrop-filter: blur(12px);
   padding: 8px 20px;
   border-radius: 100px;
-  margin-top: -32px;
-  margin-bottom: 32px;
+  margin-bottom: 24px;
   animation: fadeSlideUp 0.8s var(--ease-out) 0.2s both;
 }
 
