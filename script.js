@@ -233,8 +233,8 @@ document.addEventListener('DOMContentLoaded', () => {
     navigateTo(initialPage);
   }
 
-  // Initialize milestones (show PP1 by default)
-  showMilestone('pp1');
+  // Initialize milestones (show Proposal by default)
+  showMilestone('proposal');
 
   // Set up scroll listener
   window.addEventListener('scroll', handleScroll, { passive: true });
