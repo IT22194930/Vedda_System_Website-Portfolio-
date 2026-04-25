@@ -109,6 +109,22 @@
           </li>
         </ul>
 
+        <!-- Global Search Button -->
+        <button
+          class="navbar__search-btn"
+          id="globalSearchBtn"
+          aria-label="Search site (Ctrl+K)"
+          onclick="openGlobalSearch()"
+          title="Search (Ctrl+K)"
+        >
+          <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="11" cy="11" r="8"/>
+            <path d="M21 21l-4.35-4.35"/>
+          </svg>
+          <span class="navbar__search-label">Search</span>
+          <span class="navbar__search-kbd">Ctrl K</span>
+        </button>
+
         <button
           class="navbar__hamburger"
           id="hamburgerBtn"
@@ -164,6 +180,41 @@
         onclick="navigateTo('contact')"
         >Contact Us</a
       >
+    </div>
+
+    <!-- ========== GLOBAL SEARCH MODAL ========== -->
+    <div class="search-overlay" id="globalSearchOverlay" role="dialog" aria-modal="true" aria-label="Site search" onclick="closeGlobalSearch(event)">
+      <div class="search-modal">
+        <div class="search-modal__header">
+          <div class="search-modal__input-wrap">
+            <svg class="search-modal__icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="11" cy="11" r="8"/>
+              <path d="M21 21l-4.35-4.35"/>
+            </svg>
+            <input
+              type="text"
+              class="search-modal__input"
+              id="globalSearchInput"
+              placeholder="Search across all pages…"
+              autocomplete="off"
+              spellcheck="false"
+              oninput="runGlobalSearch(this.value)"
+              onkeydown="handleSearchKeydown(event)"
+            />
+            <button class="search-modal__clear" id="searchClearBtn" onclick="clearGlobalSearch()" aria-label="Clear search" style="display:none">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+            </button>
+          </div>
+          <button class="search-modal__close" onclick="closeGlobalSearch()" aria-label="Close search">Esc</button>
+        </div>
+        <div class="search-modal__body" id="globalSearchResults">
+          <div class="search-modal__hint">
+            <div class="search-hint-item"><kbd>↑</kbd><kbd>↓</kbd> navigate</div>
+            <div class="search-hint-item"><kbd>↵</kbd> open</div>
+            <div class="search-hint-item"><kbd>Esc</kbd> close</div>
+          </div>
+        </div>
+      </div>
     </div>
 
     <!-- ========== HOME SECTION ========== -->
@@ -1168,7 +1219,23 @@
           </p>
         </div>
 
-        <div class="docs-list">
+        <!-- Local search for documents -->
+        <div class="local-search-bar" id="docsSearch">
+          <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/>
+          </svg>
+          <input
+            type="text"
+            id="docsSearchInput"
+            placeholder="Filter documents…"
+            oninput="filterDocs(this.value)"
+            aria-label="Filter documents"
+          />
+          <button class="local-search-bar__clear" onclick="clearLocalSearch('docsSearchInput', filterDocs)" aria-label="Clear filter" style="display:none" id="docsSearchClear">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+          </button>
+        </div>
+        <div class="docs-list" id="docsList">
           <a
             href="https://mysliit-my.sharepoint.com/:b:/g/personal/it22194930_my_sliit_lk/IQDdKUgDRLmASYuztCjbaf2WAZSee9U8H8qqxOggkfzkGiI?e=vW5XIs"
             class="doc-item reveal"
@@ -1324,7 +1391,23 @@
           </p>
         </div>
 
-        <div class="docs-list">
+        <!-- Local search for slides -->
+        <div class="local-search-bar" id="slidesSearch">
+          <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/>
+          </svg>
+          <input
+            type="text"
+            id="slidesSearchInput"
+            placeholder="Filter presentations…"
+            oninput="filterSlides(this.value)"
+            aria-label="Filter presentations"
+          />
+          <button class="local-search-bar__clear" onclick="clearLocalSearch('slidesSearchInput', filterSlides)" aria-label="Clear filter" style="display:none" id="slidesSearchClear">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+          </button>
+        </div>
+        <div class="docs-list" id="slidesList">
           <a
             href="https://mysliit.sharepoint.com/:p:/s/CDAPSubmissionCloud/IQAvHfE3RtiAT5iyNCZJ_EAsAZI2clgblubudiETveoiATo?e=VYhhys"
             class="doc-item reveal"
@@ -1472,7 +1555,25 @@
           </p>
         </div>
 
-        <div class="about-section">
+        <!-- Local search for team members -->
+        <div class="local-search-bar" id="aboutSearch">
+          <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/>
+          </svg>
+          <input
+            type="text"
+            id="aboutSearchInput"
+            placeholder="Search by name, role, or component…"
+            oninput="filterTeam(this.value)"
+            aria-label="Search team members"
+          />
+          <button class="local-search-bar__clear" onclick="clearLocalSearch('aboutSearchInput', filterTeam)" aria-label="Clear filter" style="display:none" id="aboutSearchClear">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+          </button>
+        </div>
+        <div id="aboutNoResults" class="search-no-results" style="display:none">No team members match your search.</div>
+
+        <div class="about-section" id="aboutSection">
           <div class="supervisor-grid">
             <!-- Supervisor -->
             <div class="supervisor-card reveal">
