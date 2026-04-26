@@ -1,827 +1,1838 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Vedda Culture Digital Preservation | Research Project 25-26J-492</title>
-  <meta name="description" content="Digital Preservation of Sri Lankan Indigenous Vedda Culture - an academic research project developing 3D phonetic models, speech translation, and AI-assisted artifact identification to safeguard an endangered oral-only language.">
-  <meta name="keywords" content="Vedda, Sri Lanka, indigenous culture, digital preservation, endangered language, research">
-  <link rel="stylesheet" href="styles.css">
-  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🌿</text></svg>">
-  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
-</head>
-<body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>
+      Vedda Culture Digital Preservation | Research Project 25-26J-492
+    </title>
+    <meta
+      name="description"
+      content="Digital Preservation of Sri Lankan Indigenous Vedda Culture - an academic research project developing 3D phonetic models, speech translation, and AI-assisted artifact identification to safeguard an endangered oral-only language."
+    />
+    <meta
+      name="keywords"
+      content="Vedda, Sri Lanka, indigenous culture, digital preservation, endangered language, research"
+    />
+    <link rel="stylesheet" href="styles.css" />
+    <link
+      rel="icon"
+      href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🌿</text></svg>"
+    />
+    <script
+      type="text/javascript"
+      src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"
+    ></script>
+  </head>
+  <body>
+    <!-- ========== NAVIGATION ========== -->
+    <nav
+      class="navbar"
+      id="navbar"
+      role="navigation"
+      aria-label="Main Navigation"
+    >
+      <div class="navbar__inner">
+        <a
+          href="#"
+          class="navbar__brand"
+          onclick="
+            navigateTo('home');
+            return false;
+          "
+        >
+          <div class="navbar__logo">
+            <img src="assets/logo.png" alt="Vedda Heritage Logo" />
+          </div>
+          <div class="navbar__title">
+            Vedda Heritage
+            <span>Project 25-26J-492</span>
+          </div>
+        </a>
 
-  <!-- ========== NAVIGATION ========== -->
-  <nav class="navbar" id="navbar" role="navigation" aria-label="Main Navigation">
-    <div class="navbar__inner">
-      <a href="#" class="navbar__brand" onclick="navigateTo('home'); return false;">
-        <div class="navbar__logo"><img src="assets/logo.png" alt="Vedda Heritage Logo"></div>
-        <div class="navbar__title">
-          Vedda Heritage
-          <span>Project 25-26J-492</span>
-        </div>
-      </a>
+        <ul class="navbar__links" id="desktopNav">
+          <li>
+            <a
+              class="navbar__link active"
+              data-page="home"
+              onclick="navigateTo('home')"
+              >Home</a
+            >
+          </li>
+          <li>
+            <a
+              class="navbar__link"
+              data-page="domain"
+              onclick="navigateTo('domain')"
+              >Domain</a
+            >
+          </li>
+          <li>
+            <a
+              class="navbar__link"
+              data-page="milestones"
+              onclick="navigateTo('milestones')"
+              >Milestones</a
+            >
+          </li>
+          <li>
+            <a
+              class="navbar__link"
+              data-page="documents"
+              onclick="navigateTo('documents')"
+              >Documents</a
+            >
+          </li>
+          <li>
+            <a
+              class="navbar__link"
+              data-page="slides"
+              onclick="navigateTo('slides')"
+              >Slides</a
+            >
+          </li>
+          <li>
+            <a
+              class="navbar__link"
+              data-page="about"
+              onclick="navigateTo('about')"
+              >About Us</a
+            >
+          </li>
+          <li>
+            <a
+              class="navbar__link"
+              data-page="contact"
+              onclick="navigateTo('contact')"
+              >Contact Us</a
+            >
+          </li>
+        </ul>
 
-      <ul class="navbar__links" id="desktopNav">
-        <li><a class="navbar__link active" data-page="home" onclick="navigateTo('home')">Home</a></li>
-        <li><a class="navbar__link" data-page="domain" onclick="navigateTo('domain')">Domain</a></li>
-        <li><a class="navbar__link" data-page="milestones" onclick="navigateTo('milestones')">Milestones</a></li>
-        <li><a class="navbar__link" data-page="documents" onclick="navigateTo('documents')">Documents</a></li>
-        <li><a class="navbar__link" data-page="slides" onclick="navigateTo('slides')">Slides</a></li>
-        <li><a class="navbar__link" data-page="about" onclick="navigateTo('about')">About Us</a></li>
-        <li><a class="navbar__link" data-page="contact" onclick="navigateTo('contact')">Contact Us</a></li>
-      </ul>
+        <!-- Global Search Button -->
+        <button
+          class="navbar__search-btn"
+          id="globalSearchBtn"
+          aria-label="Search site (Ctrl+K)"
+          onclick="openGlobalSearch()"
+          title="Search (Ctrl+K)"
+        >
+          <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="11" cy="11" r="8"/>
+            <path d="M21 21l-4.35-4.35"/>
+          </svg>
+          <span class="navbar__search-label">Search</span>
+          <span class="navbar__search-kbd">Ctrl K</span>
+        </button>
 
-      <button class="navbar__hamburger" id="hamburgerBtn" aria-label="Toggle navigation menu" onclick="toggleMobileNav()">
-        <span></span><span></span><span></span>
-      </button>
+        <button
+          class="navbar__hamburger"
+          id="hamburgerBtn"
+          aria-label="Toggle navigation menu"
+          onclick="toggleMobileNav()"
+        >
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </nav>
+
+    <!-- Mobile Navigation Overlay -->
+    <div class="mobile-nav" id="mobileNav">
+      <a
+        class="mobile-nav__link active"
+        data-page="home"
+        onclick="navigateTo('home')"
+        >Home</a
+      >
+      <a
+        class="mobile-nav__link"
+        data-page="domain"
+        onclick="navigateTo('domain')"
+        >Domain</a
+      >
+      <a
+        class="mobile-nav__link"
+        data-page="milestones"
+        onclick="navigateTo('milestones')"
+        >Milestones</a
+      >
+      <a
+        class="mobile-nav__link"
+        data-page="documents"
+        onclick="navigateTo('documents')"
+        >Documents</a
+      >
+      <a
+        class="mobile-nav__link"
+        data-page="slides"
+        onclick="navigateTo('slides')"
+        >Slides</a
+      >
+      <a
+        class="mobile-nav__link"
+        data-page="about"
+        onclick="navigateTo('about')"
+        >About Us</a
+      >
+      <a
+        class="mobile-nav__link"
+        data-page="contact"
+        onclick="navigateTo('contact')"
+        >Contact Us</a
+      >
     </div>
-  </nav>
 
-  <!-- Mobile Navigation Overlay -->
-  <div class="mobile-nav" id="mobileNav">
-    <a class="mobile-nav__link active" data-page="home" onclick="navigateTo('home')">Home</a>
-    <a class="mobile-nav__link" data-page="domain" onclick="navigateTo('domain')">Domain</a>
-    <a class="mobile-nav__link" data-page="milestones" onclick="navigateTo('milestones')">Milestones</a>
-    <a class="mobile-nav__link" data-page="documents" onclick="navigateTo('documents')">Documents</a>
-    <a class="mobile-nav__link" data-page="slides" onclick="navigateTo('slides')">Slides</a>
-    <a class="mobile-nav__link" data-page="about" onclick="navigateTo('about')">About Us</a>
-    <a class="mobile-nav__link" data-page="contact" onclick="navigateTo('contact')">Contact Us</a>
-  </div>
+    <!-- ========== GLOBAL SEARCH MODAL ========== -->
+    <div class="search-overlay" id="globalSearchOverlay" role="dialog" aria-modal="true" aria-label="Site search" onclick="closeGlobalSearch(event)">
+      <div class="search-modal">
+        <div class="search-modal__header">
+          <div class="search-modal__input-wrap">
+            <svg class="search-modal__icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="11" cy="11" r="8"/>
+              <path d="M21 21l-4.35-4.35"/>
+            </svg>
+            <input
+              type="text"
+              class="search-modal__input"
+              id="globalSearchInput"
+              placeholder="Search across all pages…"
+              autocomplete="off"
+              spellcheck="false"
+              oninput="runGlobalSearch(this.value)"
+              onkeydown="handleSearchKeydown(event)"
+            />
+            <button class="search-modal__clear" id="searchClearBtn" onclick="clearGlobalSearch()" aria-label="Clear search" style="display:none">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+            </button>
+          </div>
+          <button class="search-modal__close" onclick="closeGlobalSearch()" aria-label="Close search">Esc</button>
+        </div>
+        <div class="search-modal__body" id="globalSearchResults">
+          <div class="search-modal__hint">
+            <div class="search-hint-item"><kbd>↑</kbd><kbd>↓</kbd> navigate</div>
+            <div class="search-hint-item"><kbd>↵</kbd> open</div>
+            <div class="search-hint-item"><kbd>Esc</kbd> close</div>
+          </div>
+        </div>
+      </div>
+    </div>
 
-  <!-- ========== HOME SECTION ========== -->
-  <section class="section active" id="page-home">
-    <div class="hero">
-      <div class="hero__bg">
-        <img src="assets/hero-bg.png" alt="Sri Lankan tropical forest" loading="eager" width="1920" height="1080">
+    <!-- ========== HOME SECTION ========== -->
+    <section class="section active" id="page-home">
+      <div class="hero">
+        <div class="hero__bg">
+          <img
+            src="assets/hero-bg.png"
+            alt="Sri Lankan tropical forest"
+            loading="eager"
+            width="1920"
+            height="1080"
+          />
+        </div>
+
+        <div class="hero__content">
+          <div class="hero__badge">
+            <span class="hero__badge-dot"></span>
+            <span>Active Research Project</span>
+          </div>
+
+          <h1 class="hero__title">
+            Digital Preservation of<br />Sri Lankan
+            <em>Indigenous Vedda</em> Culture
+          </h1>
+
+          <p class="hero__project-id">PROJECT ID: 25-26J-492</p>
+
+          <p class="hero__abstract">
+            The Vedda community of Sri Lanka speaks an oral-only language with
+            fewer than 300 remaining speakers. This research project develops
+            cutting-edge AI and 3D modelling technologies to digitally preserve
+            their unique phonetics, cultural artifacts, and oral traditions
+            before they are lost to time - bridging the gap between ancient
+            heritage and modern technology.
+          </p>
+
+          <div class="hero__actions">
+            <a
+              class="btn btn--primary"
+              onclick="
+                navigateTo('domain');
+                return false;
+              "
+              href="#"
+            >
+              <svg
+                width="18"
+                height="18"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <circle cx="11" cy="11" r="8" />
+                <path d="M21 21l-4.35-4.35" />
+              </svg>
+              Explore Research
+            </a>
+            <a
+              class="btn btn--outline"
+              onclick="
+                navigateTo('about');
+                return false;
+              "
+              href="#"
+            >
+              <svg
+                width="18"
+                height="18"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" />
+                <circle cx="9" cy="7" r="4" />
+                <path d="M23 21v-2a4 4 0 0 0-3-3.87" />
+                <path d="M16 3.13a4 4 0 0 1 0 7.75" />
+              </svg>
+              Meet the Team
+            </a>
+          </div>
+        </div>
+
+        <div class="hero__scroll">
+          <div class="hero__scroll-mouse"></div>
+        </div>
+
+        <div class="hero__stats">
+          <div class="hero__stats-inner">
+            <div class="hero__stat">
+              <div class="hero__stat-number">&lt; 300</div>
+              <div class="hero__stat-label">Remaining Speakers</div>
+            </div>
+            <div class="hero__stat">
+              <div class="hero__stat-number">4</div>
+              <div class="hero__stat-label">Research Components</div>
+            </div>
+            <div class="hero__stat">
+              <div class="hero__stat-number">3D</div>
+              <div class="hero__stat-label">Phonetic Modelling</div>
+            </div>
+            <div class="hero__stat">
+              <div class="hero__stat-number">AI</div>
+              <div class="hero__stat-label">Powered Assistance</div>
+            </div>
+          </div>
+        </div>
       </div>
 
-      <div class="hero__content">
-        <div class="hero__badge">
-          <span class="hero__badge-dot"></span>
-          <span>Active Research Project</span>
+      <!-- Gallery Section -->
+      <div class="home-gallery">
+        <div class="section__header">
+          <span class="section__tag">📷 Field Research</span>
+          <h2 class="section__title">From the Field</h2>
+          <p class="section__subtitle">
+            Documenting the living heritage of the Vedda community through
+            immersive site visits and cultural engagement.
+          </p>
+        </div>
+        <div class="home-gallery__grid">
+          <div class="home-gallery__item reveal">
+            <img
+              src="assets/field-visit-1.jpg"
+              alt="Vedda community village during site visit"
+              loading="lazy"
+              width="800"
+              height="500"
+            />
+            <div class="home-gallery__caption">
+              Traditional Vedda settlement - field research site visit
+            </div>
+          </div>
+          <div class="home-gallery__item reveal">
+            <img
+              src="assets/field-visit-3.jpeg"
+              alt="Vedda community village during site visit"
+              loading="lazy"
+              width="800"
+              height="500"
+            />
+            <div class="home-gallery__caption">
+              Traditional Vedda settlement - field research site visit
+            </div>
+          </div>
+          <div class="home-gallery__item reveal">
+            <img
+              src="assets/field-visit-2.jpg"
+              alt="Vedda community village during site visit"
+              loading="lazy"
+              width="800"
+              height="500"
+            />
+            <div class="home-gallery__caption">
+              Traditional Vedda settlement - field research site visit
+            </div>
+          </div>
+          <div class="home-gallery__item reveal">
+            <img
+              src="assets/artifacts.png"
+              alt="Indigenous artifacts documented during research"
+              loading="lazy"
+              width="800"
+              height="500"
+            />
+            <div class="home-gallery__caption">
+              Cultural artifacts being documented and catalogued
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== DOMAIN SECTION ========== -->
+    <section class="section" id="page-domain">
+      <div class="container">
+        <div class="section__header">
+          <span class="section__tag">🔬 Research Domain</span>
+          <h1 class="section__title">Research Domain</h1>
+          <p class="section__subtitle">
+            Understanding the challenges, gaps, and innovative approaches to
+            preserving endangered indigenous heritage.
+          </p>
         </div>
 
-        <h1 class="hero__title">
-          Digital Preservation of<br>Sri Lankan <em>Indigenous Vedda</em> Culture
-        </h1>
+        <div class="domain-grid reveal">
+          <!-- Literature Survey -->
+          <div class="domain-card domain-card--wide">
+            <div class="domain-card__number">00 - Literature Survey</div>
+            <h2 class="domain-card__title">Literature Survey</h2>
+            <div class="domain-card__text">
+              <p>
+                Prior research shows that cascaded translation pipelines are
+                effective for multilingual systems, and Sinhala-English neural
+                machine translation can provide a practical bridge for related
+                low-resource languages such as Vedda [1], [2]. Studies on
+                phonemic transcription also emphasize that languages without
+                standardized writing systems need both manual and automated
+                annotation support to make speech data usable at scale [3].
+              </p>
+              <p style="margin-top: 12px">
+                Work on Vedda preservation consistently points to documentation,
+                digitization, and technology-enabled support as the core
+                requirements for survival [4], [5]. Web platforms have improved
+                access to indigenous language resources, but many still focus on
+                content delivery rather than learner assistance [6]. In
+                contrast, AI-based vocabulary learning research highlights the
+                value of adaptive support and guided practice, which this
+                project extends to Vedda language learning [7].
+              </p>
+              <p style="margin-top: 12px">
+                For digital heritage preservation, OAIS provides a robust
+                archival model while CIDOC CRM supports interoperable cultural
+                metadata and semantic description [8], [9]. Automated
+                identification research further shows that deep learning and
+                hybrid CNN-SVM methods can perform strongly on structured
+                classification problems, making them suitable for artifact
+                recognition workflows [10].
+              </p>
+              <p style="margin-top: 12px">
+                Speech visualization studies demonstrate that 3D articulatory
+                feedback improves pronunciation learning by exposing mouth and
+                tongue motion instead of relying only on text or audio [11].
+                Recent lip-sync and tongue-animation methods confirm that
+                realistic motion improves intelligibility and naturalness [12],
+                [13], and WebGL talking-head systems show that these ideas can
+                run directly in browsers [14].
+              </p>
+              <p style="margin-top: 12px">
+                <strong>Research implication:</strong> the proposed platform
+                combines browser-based 3D rendering, IPA-driven viseme control,
+                translation support, archival metadata, and adaptive learner
+                guidance to address the current gap in Vedda-centered
+                intelligent support.
+              </p>
+            </div>
+          </div>
 
-        <p class="hero__project-id">PROJECT ID: 25-26J-492</p>
+          <!-- Research Problem -->
+          <div class="domain-card domain-card--center">
+            <div class="domain-card__number">01 - Problem</div>
+            <h2 class="domain-card__title">Research Problem</h2>
+            <div class="domain-card__text">
+              <p>
+                The Vedda language of Sri Lanka is critically endangered - an
+                oral-only language spoken by fewer than
+                <strong>300 people</strong>, with no written script, formal
+                grammar, or digital footprint. As elder speakers pass away,
+                entire vocabularies, oral histories, and cultural knowledge are
+                lost irreversibly.
+              </p>
+              <p style="margin-top: 12px">
+                Without immediate intervention through modern digital
+                preservation technologies, this unique linguistic and cultural
+                identity faces
+                <strong>complete extinction within a single generation</strong>.
+              </p>
+            </div>
+          </div>
 
-        <p class="hero__abstract">
-          The Vedda community of Sri Lanka speaks an oral-only language with fewer than 300 remaining speakers. 
-          This research project develops cutting-edge AI and 3D modelling technologies to digitally 
-          preserve their unique phonetics, cultural artifacts, and oral traditions before they are lost 
-          to time - bridging the gap between ancient heritage and modern technology.
-        </p>
+          <!-- Research Gap -->
+          <div class="domain-card domain-card--wide">
+            <div class="domain-card__number">02 - Research Gap</div>
+            <h2 class="domain-card__title">Research Gap</h2>
+            <div class="domain-card__text">
+              <p>
+                Despite significant advances in natural language processing and
+                digital heritage technologies, a critical and underserved gap
+                exists for extremely low-resource, oral-only indigenous
+                languages like Vedda. Current preservation and educational
+                solutions fall across four interconnected dimensions:
+              </p>
 
-        <div class="hero__actions">
-          <a class="btn btn--primary" onclick="navigateTo('domain'); return false;" href="#">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg>
-            Explore Research
+              <h3
+                style="
+                  margin-top: 24px;
+                  margin-bottom: 12px;
+                  font-size: 1.1em;
+                  font-weight: 600;
+                "
+              >
+                01. Culturally-Contextualized Translation Pipelines
+              </h3>
+              <p>
+                Existing neural machine translation models require massive
+                datasets and frequently hallucinate or fragment culturally
+                significant compound phrases when applied to endangered
+                languages. No current system utilizes a progressive algorithm
+                and intermediate bridge-language architecture to ensure semantic
+                and cultural fidelity without massive data overhead.
+              </p>
+
+              <h3
+                style="
+                  margin-top: 24px;
+                  margin-bottom: 12px;
+                  font-size: 1.1em;
+                  font-weight: 600;
+                "
+              >
+                02. Intelligent gamified adaptive learning systems for
+                Data-Scarce Languages
+              </h3>
+              <p>
+                Current language learning platforms rely on rigid rule-based
+                systems or generic large language models that invent invalid
+                vocabulary (hallucinations) when lacking domain knowledge. There
+                is an absence of user engaging adaptive learning systems that
+                provide accurate, culturally grounded pedagogical feedback.
+              </p>
+
+              <h3
+                style="
+                  margin-top: 24px;
+                  margin-bottom: 12px;
+                  font-size: 1.1em;
+                  font-weight: 600;
+                "
+              >
+                03. Low-Resource Phonetic and Speech Preservation
+              </h3>
+              <p>
+                As an oral-only language without a standard script, Vedda cannot
+                be preserved through text alone. Existing speech technologies
+                fail on micro-corpora, and there is a lack of integrated
+                platforms with interactive, 3D phonetic visualization tools to
+                accurately capture, transcribe, and teach indigenous
+                pronunciation.
+              </p>
+
+              <h3
+                style="
+                  margin-top: 24px;
+                  margin-bottom: 12px;
+                  font-size: 1.1em;
+                  font-weight: 600;
+                "
+              >
+                04. AI-Assisted Cultural Heritage Documentation
+              </h3>
+              <p>
+                Traditional digital archives for indigenous cultures are static,
+                text-heavy, and lack automated metadata generation. No
+                integrated platform currently employs hybrid machine learning
+                pipelines (such as CNN-SVM architectures) optimized for
+                extremely limited datasets to accurately identify and digitally
+                catalog traditional artifacts and cultural metadata.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="domain-grid reveal" style="margin-top: 32px">
+          <!-- Objectives -->
+          <div class="domain-card domain-card--wide">
+            <div class="domain-card__number">03 - Research Objectives</div>
+            <h2 class="domain-card__title">Research Objectives</h2>
+            <div class="domain-card__text">
+              <p>
+                To design and develop a comprehensive digital preservation and
+                learning platform that safeguards the highly endangered Vedda
+                language and culture. This system aims to support multilingual
+                communication, interactive education, and cultural documentation
+                through advanced artificial intelligence and scalable
+                microservices.
+              </p>
+
+              <h3
+                style="
+                  margin-top: 24px;
+                  margin-bottom: 12px;
+                  font-size: 1.1em;
+                  font-weight: 600;
+                "
+              >
+                01. Real-Time Translation and Speech Processing
+              </h3>
+              <p>
+                Develop a bidirectional translation and speech transcription
+                service tailored for low-resource constraints. This objective
+                focuses on implementing a Sinhala-bridge architecture with
+                progressive phrase matching and a fine-tuned Whisper model for
+                accurate Vedda speech recognition.
+              </p>
+
+              <h3
+                style="
+                  margin-top: 24px;
+                  margin-bottom: 12px;
+                  font-size: 1.1em;
+                  font-weight: 600;
+                "
+              >
+                02. AI-Driven Adaptive Learning and Feedback
+              </h3>
+              <p>
+                Design an intelligent learning module that provides gamified
+                vocabulary practice and adaptive guidance. This involves
+                utilizing a hybrid ensemble machine learning classifier for
+                real-time mistake detection and a Retrieval-Augmented Generation
+                (RAG) pipeline to deliver personalized, culturally accurate
+                pedagogical feedback.
+              </p>
+
+              <h3
+                style="
+                  margin-top: 24px;
+                  margin-bottom: 12px;
+                  font-size: 1.1em;
+                  font-weight: 600;
+                "
+              >
+                03. Interactive 3D Phonetic Visualization
+              </h3>
+              <p>
+                Create an interactive 3D pronunciation model to preserve and
+                teach the oral traditions of the Vedda language. This objective
+                centers on mapping International Phonetic Alphabet (IPA) data to
+                viseme-based morph targets, enabling realistic 3D facial
+                animations for accurate pronunciation guidance.
+              </p>
+
+              <h3
+                style="
+                  margin-top: 24px;
+                  margin-bottom: 12px;
+                  font-size: 1.1em;
+                  font-weight: 600;
+                "
+              >
+                04. AI-Assisted Cultural Artifact Identification
+              </h3>
+              <p>
+                Develop a culturally governed digital preservation system to
+                automate the metadata identification of traditional Vedda
+                artifacts. This objective employs a hybrid Convolutional Neural
+                Network (CNN) and Support Vector Machine (SVM) pipeline to
+                ensure high-accuracy artifact classification under data-scarce
+                conditions.
+              </p>
+            </div>
+          </div>
+
+          <!-- Methodology -->
+          <div class="domain-card domain-card--wide">
+            <div class="domain-card__number">04 - Methodology</div>
+            <h2 class="domain-card__title">Methodology</h2>
+            <div class="domain-card__text">
+              <p>
+                The Vedda Language Preservation Platform was developed following
+                an Agile methodology with iterative development sprints,
+                enabling continuous validation of research hypotheses, machine
+                learning model refinement, and rapid adaptation based on field
+                data and expert linguistic feedback.
+              </p>
+
+              <h3
+                style="
+                  margin-top: 24px;
+                  margin-bottom: 12px;
+                  font-size: 1.1em;
+                  font-weight: 600;
+                "
+              >
+                PHASE 1 - Research & Requirements
+              </h3>
+              <p>
+                Conducted a comprehensive literature survey on low-resource
+                language preservation and digital heritage. Formulated the
+                research problem, defined measurable objectives for the four
+                core subsystems, and finalized the microservices system
+                architecture design. Technology selection was completed
+                (incorporating Python, Node.js, React, and Three.js) and the
+                project proposal was drafted and submitted.
+              </p>
+
+              <h3
+                style="
+                  margin-top: 24px;
+                  margin-bottom: 12px;
+                  font-size: 1.1em;
+                  font-weight: 600;
+                "
+              >
+                PHASE 2 - System Foundation
+              </h3>
+              <p>
+                Configured the Docker bridge network (vedda-network) to
+                containerize independent microservices. Set up the central API
+                Gateway using Flask for routing, Cross-Origin Resource Sharing
+                (CORS), and JSON Web Token (JWT) validation. Established
+                database schemas across MongoDB and SQLite, and scaffolded the
+                React and Three.js frontend environments.
+              </p>
+
+              <h3
+                style="
+                  margin-top: 24px;
+                  margin-bottom: 12px;
+                  font-size: 1.1em;
+                  font-weight: 600;
+                "
+              >
+                PHASE 3 - Core Module Development
+              </h3>
+              <p>
+                Parallel development of all four core modules: the
+                Sinhala-bridge translation and Whisper-based Automatic Speech
+                Recognition (ASR) pipeline, the AI-driven adaptive learning
+                module featuring a Hybrid Ensemble classifier and GPT-4
+                Retrieval-Augmented Generation (RAG) integration, the cultural
+                artifact identifier using a CNN-SVM hybrid model, and the
+                interactive 3D phonetic viewer with IPA-driven
+                lip-synchronization.
+              </p>
+
+              <h3
+                style="
+                  margin-top: 24px;
+                  margin-bottom: 12px;
+                  font-size: 1.1em;
+                  font-weight: 600;
+                "
+              >
+                PHASE 4 - Integration & Validation
+              </h3>
+              <p>
+                Full cross-module system integration via REST APIs and shared
+                volumes. Conducted rigorous performance validation of ML models
+                against baselines (e.g., 5-fold cross-validation and Word Error
+                Rate benchmarking). Executed real-world data collection and
+                validation through site visits to Vedda communities (Dambana),
+                followed by final latency optimization for production readiness.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="domain-card domain-card--wide" style="margin-top: 32px">
+          <div class="domain-card__number">Technologies Used</div>
+          <h2 class="domain-card__title">Technologies Used</h2>
+          <div class="domain-card__text">
+            <p>
+              These are the technologies used across the project modules for
+              real-time translation, adaptive vocabulary learning, 3D phonetic
+              pronunciation, and artifact digital preservation.
+            </p>
+            <ul>
+              <li>
+                <strong>Web Technologies</strong> React, Vite, Node.js, and
+                Flask for building the interactive client frontend, backend
+                microservices, and the centralized API Gateway.
+              </li>
+              <li>
+                <strong>Databases & Storage</strong> MongoDB, SQLite, and
+                Cloudinary for managing artifact metadata, user learning
+                progress, system history, and media content delivery.
+              </li>
+              <li>
+                <strong>AI / ML Frameworks</strong> Scikit-learn and
+                Keras/TensorFlow for developing the hybrid CNN-SVM image
+                classification pipeline and the soft-voting machine learning
+                ensemble (Logistic Regression, Random Forest, Gradient
+                Boosting).
+              </li>
+              <li>
+                <strong>Speech and Translation</strong> Fine-tuned Whisper ASR,
+                gTTS (Google Text-to-Speech), and Google APIs for multilingual
+                speech-to-text processing and Sinhala-bridge text translation.
+              </li>
+              <li>
+                <strong>Adaptive Learning & GenAI</strong> OpenAI API (GPT-4 and
+                Embeddings) integrated with a Retrieval-Augmented Generation
+                (RAG) pipeline to deliver context-aware, personalized
+                pedagogical feedback.
+              </li>
+              <li>
+                <strong>3D and Media</strong> Three.js, WebGL, and GLTF/GLB
+                components for rendering 3D facial models with IPA-driven morph
+                target mapping for interactive lip-synchronization.
+              </li>
+              <li>
+                <strong>Infrastructure & Security</strong> Docker (Bridge
+                Network) for containerized microservice orchestration, alongside
+                JSON Web Tokens (JWT) and bcrypt for secure routing and
+                authentication.
+              </li>
+              <li>
+                <strong>Deployment</strong> - GitHub, Vercel, and Azure for
+                source control and hosting
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="system-diagram-container">
+          <h1>System Architecture</h1>
+          <p class="system-diagram-description">
+            A modular microservices layout connecting the client, gateway, AI
+            services, data stores, and external APIs into one preservation
+            platform.
+          </p>
+          <div class="system-diagram-img">
+            <img
+              src="assets/System Diagram.png"
+              alt="System architecture diagram showing microservices for artifact classification, speech translation, 3D phonetics, and gamified learning"
+              loading="lazy"
+            />
+          </div>
+        </div>
+
+        <div class="domain-card domain-card--wide" style="margin-top: 32px">
+          <div class="domain-card__number">References</div>
+          <h2 class="domain-card__title">References</h2>
+          <div class="domain-card__text">
+            <ol class="reference-list">
+              <li class="reference-item">
+                <strong>[1]</strong> Andrei Popescu-Belis, Alexis Allemann, Teo
+                Ferrari, Gopal Krishnamani, “Speech-to-speech translation
+                pipelines for conversations in low-resource languages,” in Proc.
+                MTSummit, Paris, France, 2025 (to appear).
+              </li>
+              <li class="reference-item">
+                <strong>[2]</strong> Sanjana Rajapaksha, Sashintha Juwan Podige,
+                Sanaya Lokusinghe Arachchige, D. I. de Silva, Avishka
+                Manathunga, and Eishan Weerasinghe, “Sinhala to English language
+                translation model,” SLIIT Tech. Rep., Oct. 2023.
+              </li>
+              <li class="reference-item">
+                <strong>[3]</strong> Guillaume Wisniewski, S&#233;verine
+                Guillaume, and Alexis Michaud, “Phonemic transcription of
+                low-resource languages: To what extent can preprocessing be
+                automated?,” in Proc. Joint Workshop on SLTU/CCURL, Marseille,
+                France, 2020, pp. 306–315.
+              </li>
+              <li class="reference-item">
+                <strong>[4]</strong> P. Weerasekara, “The Value of Protecting
+                Endangered Language in Culture: With Special Reference to
+                Examine the Vedda Language in Sri Lanka,” International Journal
+                of Research and Innovation in Social Science, vol. 4, pp.
+                429–434, 2021.
+              </li>
+              <li class="reference-item">
+                <strong>[5]</strong> N. S. Dash, “Documentation and digitization
+                of endangered indigenous languages: Methods and strategies,” in
+                Proceedings of the International Mother Language Day 2024,
+                Colombo, Sri Lanka, Feb. 21, 2024, pp. 5–24.
+              </li>
+              <li class="reference-item">
+                <strong>[6]</strong> N. Melgarejo and L. Camacho,
+                “Implementation of a web platform for the preservation of
+                American native languages,” in Proc. 2018 IEEE 25th Int. Conf.
+                Electronics, Electrical Eng. &amp; Computing (INTERCON 2018),
+                Lima, Peru, 2018, Art. no. 8526430.
+              </li>
+              <li class="reference-item">
+                <strong>[7]</strong> R. Teymouri, “Recent developments in
+                mobile-assisted vocabulary learning: A mini review of published
+                studies focusing on digital flashcards,” Frontiers in Education,
+                vol. 9, Art. 1496578, 2024, doi: 10.3389/feduc.2024.1496578.
+              </li>
+              <li class="reference-item">
+                <strong>[8]</strong> ISO, Space data and information transfer
+                systems - Open archival information system (OAIS) - Reference
+                model, ISO 14721:2012, 2012.
+              </li>
+              <li class="reference-item">
+                <strong>[9]</strong> M. Doerr, “The CIDOC conceptual reference
+                model: An ontological approach to semantic interoperability of
+                metadata,” AI Mag., vol. 24, no. 3, pp. 75-92, 2003.
+              </li>
+              <li class="reference-item">
+                <strong>[10]</strong> Y. Tang, “Deep learning using linear
+                support vector machines,” arXiv:1306.0239, 2013.
+              </li>
+              <li class="reference-item">
+                <strong>[11]</strong> M. Story, B. Bunton, and J. P. H. W.
+                Titze, “Dynamic 3D Visualization of Vocal Tract Shaping During
+                Speech,” The Journal of the Acoustical Society of America, vol.
+                132, no. 4, pp. 2434-2445, 2012.
+              </li>
+              <li class="reference-item">
+                <strong>[12]</strong> K. R. Prajwal, R. Mukhopadhyay, V. P.
+                Namboodiri, and C. V. Jawahar, “A Lip Sync Expert Is All You
+                Need for Speech to Lip Generation in the Wild,” arXiv preprint
+                arXiv:2008.10010, 2020.
+              </li>
+              <li class="reference-item">
+                <strong>[13]</strong> J. Medina, P. Arguedas, and J. Luque,
+                “Speech Driven Tongue Animation,” in Proceedings of the IEEE/CVF
+                Conference on Computer Vision and Pattern Recognition (CVPR),
+                2022, pp. 121-130.
+              </li>
+              <li class="reference-item">
+                <strong>[14]</strong> G. R. Leone and P. Cosi, “LUCIA-WebGL: A
+                Web Based Italian MPEG-4 Talking Head,” in Proceedings of AVSP
+                2011, 2011.
+              </li>
+            </ol>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== MILESTONES SECTION ========== -->
+    <section class="section section--milestones" id="page-milestones">
+      <div class="container">
+        <div class="section__header">
+          <span class="section__tag">Milestones</span>
+          <h1 class="section__title">Project Milestones</h1>
+          <p class="section__subtitle">
+            Track all formal assessments and key deliverables across the
+            project lifecycle. Select a milestone below to view its full
+            details.
+          </p>
+        </div>
+
+        <!-- Dropdown -->
+        <div class="milestones-wrapper">
+          <div class="milestones-select reveal">
+            <label for="milestoneDropdown">Select a Milestone:</label>
+            <select
+              class="milestones-dropdown"
+              id="milestoneDropdown"
+              onchange="showMilestone(this.value)"
+            >
+              <option value="proposal" selected>Project Proposal & Viva</option>
+              <option value="pp1">Progress Presentation 1 (PP1)</option>
+              <option value="pp2">Progress Presentation 2 (PP2)</option>
+              <option value="final">Final Assessment</option>
+            </select>
+          </div>
+
+          <!-- Proposal -->
+          <div class="milestone-detail milestone-detail--feature" id="milestone-proposal">
+            <div class="milestone-detail__header">
+              <div class="milestone-detail__icon" aria-hidden="true">
+                <svg
+                  width="28"
+                  height="28"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <path d="M6 2v4" />
+                  <path d="M18 2v4" />
+                  <rect x="3" y="4" width="18" height="18" rx="2" />
+                  <path d="M3 10h18" />
+                </svg>
+              </div>
+              <div class="milestone-detail__heading">
+                <h2 class="milestone-detail__title">Project Proposal & Viva</h2>
+                <div class="milestone-detail__chips">
+                  <span class="milestone-chip">📅 Report Deadline: 15 August 2025</span>
+                  <span class="milestone-chip">⏱ Presentation: 8 – 12 September 2025</span>
+                  <span class="milestone-chip milestone-chip--accent">📊 Total Weight: 12%</span>
+                </div>
+              </div>
+            </div>
+            <p class="milestone-detail__desc">
+              The Project Proposal is the first formal milestone, establishing the academic and commercial foundation of the research. The assessment opens with a two-minute promotional video that introduces the real-world problem and its impact, accompanied by a high-level system diagram illustrating the proposed solution's architecture and component relationships.</br></br>
+              Each student is then allocated exactly three minutes to present their individual component, focusing specifically on the knowledge gap they are addressing, the specialized technologies selected, and a clear, structured implementation roadmap. The session concludes with a group analysis of the project's commercialization potential, covering estimated investment costs, pricing strategies, and target market profiles for the proposed solution.
+            </p>
+            <div class="milestone-detail__marks">
+              <div class="milestone-mark-card">
+                <div class="milestone-mark-card__label">Proposal Report</div>
+                <div class="milestone-mark-card__value">6%</div>
+              </div>
+              <div class="milestone-mark-card">
+                <div class="milestone-mark-card__label">Proposal Presentation</div>
+                <div class="milestone-mark-card__value">6%</div>
+              </div>
+              <div class="milestone-mark-card">
+                <div class="milestone-mark-card__label">Combined Total</div>
+                <div class="milestone-mark-card__value">12%</div>
+              </div>
+            </div>
+            <div class="progress-bar">
+              <div class="progress-bar__fill" style="width: 100%"></div>
+            </div>
+          </div>
+
+          <!-- PP1 -->
+          <div class="milestone-detail milestone-detail--feature active" id="milestone-pp1">
+            <div class="milestone-detail__header">
+              <div class="milestone-detail__icon" aria-hidden="true">
+                <svg
+                  width="28"
+                  height="28"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <rect x="3" y="3" width="18" height="18" rx="2" />
+                  <path d="M7 16V9" />
+                  <path d="M12 16V6" />
+                  <path d="M17 16v-5" />
+                </svg>
+              </div>
+              <div class="milestone-detail__heading">
+                <h2 class="milestone-detail__title">
+                  Progress Presentation 1 (PP1)
+                </h2>
+                <div class="milestone-detail__chips">
+                  <span class="milestone-chip">📅 Date: 5 – 9 January 2026</span>
+                  <span class="milestone-chip">⏱ Duration: 20 Minutes per Team</span>
+                  <span class="milestone-chip milestone-chip--accent">📊 Total Weight: 15%</span>
+                </div>
+              </div>
+            </div>
+            <p class="milestone-detail__desc">
+              Progress Presentation 1 is a critical individual milestone that
+              serves as an academic reality check, verifying that each student
+              is on track to effectively solve their stated research problem
+              while exposing any design gaps, technical inconsistencies, or
+              unanticipated implementation challenges early enough in the
+              development cycle to allow meaningful course correction.</br></br>
+              Each student must demonstrate that at least 50% of their technical
+              product is functionally complete, presented through a live demo,
+              simulation, or working software prototype. The 20-minute team
+              session is scored across three components: individual presentation
+              quality, the depth and clarity of the technical demonstration, and
+              performance in a viva Q&A session with the panel. For mobile
+              applications, demonstrations must be conducted via emulator,
+              physical devices are not permitted.</br></br>
+              The prototype may range from an initial alpha to a pre-alpha release, provided it runs
+              successfully and showcases meaningful system features with
+              realistic data rather than basic interface elements such as login
+              screens.
+            </p>
+            <div class="milestone-detail__marks milestone-detail__marks--pp1">
+              <div class="milestone-mark-card">
+                <div class="milestone-mark-card__label">Presentation (marks)</div>
+                <div class="milestone-mark-card__value">30</div>
+              </div>
+              <div class="milestone-mark-card">
+                <div class="milestone-mark-card__label">Technical Demo (marks)</div>
+                <div class="milestone-mark-card__value">10</div>
+              </div>
+              <div class="milestone-mark-card">
+                <div class="milestone-mark-card__label">Q&A Viva (marks)</div>
+                <div class="milestone-mark-card__value">12</div>
+              </div>
+              <div class="milestone-mark-card milestone-mark-card--highlight">
+                <div class="milestone-mark-card__label">Total Weight</div>
+                <div class="milestone-mark-card__value">15%</div>
+              </div>
+            </div>
+            <div class="progress-bar">
+              <div class="progress-bar__fill" style="width: 100%"></div>
+            </div>
+          </div>
+
+          <!-- PP2 -->
+          <div class="milestone-detail milestone-detail--feature" id="milestone-pp2">
+            <div class="milestone-detail__header">
+              <div class="milestone-detail__icon" aria-hidden="true">
+                <svg
+                  width="28"
+                  height="28"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <rect x="3" y="3" width="18" height="18" rx="2" />
+                  <path d="M7 16V9" />
+                  <path d="M12 16V6" />
+                  <path d="M17 16v-5" />
+                </svg>
+              </div>
+              <div class="milestone-detail__heading">
+                <h2 class="milestone-detail__title">Progress Presentation 2 (PP2)</h2>
+                <div class="milestone-detail__chips">
+                  <span class="milestone-chip">📅 Date: 9 – 12 March 2026</span>
+                  <span class="milestone-chip">⏱ Duration: 45 Minutes per Team</span>
+                  <span class="milestone-chip milestone-chip--accent">📊 Total Weight: 18%</span>
+                </div>
+              </div>
+            </div>
+            <p class="milestone-detail__desc">
+              Progress Presentation 2 is a comprehensive 45-minute team assessment evaluating the depth of system integration, research maturity, and the team's ability to demonstrate a near-complete, cohesive product. A randomly selected team member opens with a five-minute project overview before the group delivers a 30-minute integrated live demonstration spanning all four system modules working together seamlessly.</br></br>
+              At this stage, the system must be at least 90% complete with full cross-module integration clearly demonstrated. Research maturity is assessed through data-backed performance claims, baseline comparisons against existing approaches, and evidence of meaningful experimental validation with real or representative data. The scoring framework is weighted heavily toward Solution Implementation (40%) and Applied Knowledge (20%), alongside communication quality and the team's articulation of the project's commercialization potential.</br></br>
+              Teams must ensure they bring all required hardware including laptops, HDMI cables, and extension cords and maintain a pre-recorded backup video as a contingency plan for technical failures during the live demonstration.
+            </p>
+            <div class="milestone-detail__marks">
+              <div class="milestone-mark-card">
+                <div class="milestone-mark-card__label">Solution Implementation</div>
+                <div class="milestone-mark-card__value">40%</div>
+              </div>
+              <div class="milestone-mark-card">
+                <div class="milestone-mark-card__label">Applying Knowledge</div>
+                <div class="milestone-mark-card__value">20%</div>
+              </div>
+              <div class="milestone-mark-card">
+                <div class="milestone-mark-card__label">Total Weight</div>
+                <div class="milestone-mark-card__value">18%</div>
+              </div>
+            </div>
+            <div class="progress-bar">
+              <div class="progress-bar__fill" style="width: 92%"></div>
+            </div>
+          </div>
+
+          <!-- Final -->
+          <div class="milestone-detail milestone-detail--feature" id="milestone-final">
+            <div class="milestone-detail__header">
+              <div class="milestone-detail__icon" aria-hidden="true">
+                <svg
+                  width="28"
+                  height="28"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <path d="M20 6L9 17l-5-5" />
+                  <path d="M4 7V4h3" />
+                  <path d="M20 17v3h-3" />
+                </svg>
+              </div>
+              <div class="milestone-detail__heading">
+                <h2 class="milestone-detail__title">Final Assessment</h2>
+                <div class="milestone-detail__chips">
+                  <span class="milestone-chip">📅 Date: 27th April – 6th May 2026</span>
+                  <span class="milestone-chip milestone-chip--accent">📊 Total Weight: 55%</span>
+                </div>
+              </div>
+            </div>
+            <p class="milestone-detail__desc">
+             The Final Assessment is the most comprehensive evaluation of the project, representing 55% of the overall module grade. It is the culmination of an entire year of research, development, and iterative refinement and at this stage, examiners expect a fully completed, production-ready system that satisfies every stated research objective with no missing requirements, unresolved defects, or incomplete features.</br></br>
+             The evaluation panel will rigorously examine each student's understanding of the AI and machine learning components embedded within the system including how models were designed, trained, validated, and integrated into the production application. Students must be prepared to defend their architectural decisions, explain their code at a granular level, discuss edge cases and system limitations, and demonstrate awareness of scalability, deployment considerations, and real-world operational constraints.</br></br>
+             Beyond the live system demonstration, the final assessment encompasses a comprehensive set of written and digital deliverables including individual and group reports, a research paper, a project logbook, this website, and checklist documentation each contributing to the holistic evaluation of the team's research output and professional standard.
+            </p>
+            <div class="milestone-detail__marks milestone-detail__marks--final">
+              <div class="milestone-mark-card">
+                <div class="milestone-mark-card__label">Final Report</div>
+                <div class="milestone-mark-card__value">15%</div>
+              </div>
+              <div class="milestone-mark-card">
+                <div class="milestone-mark-card__label">Final Presentation</div>
+                <div class="milestone-mark-card__value">10%</div>
+              </div>
+              <div class="milestone-mark-card">
+                <div class="milestone-mark-card__label">Viva</div>
+                <div class="milestone-mark-card__value">10%</div>
+              </div>
+              <div class="milestone-mark-card">
+                <div class="milestone-mark-card__label">Research Paper</div>
+                <div class="milestone-mark-card__value">10%</div>
+              </div>
+              <div class="milestone-mark-card">
+                <div class="milestone-mark-card__label">Final Report</div>
+                <div class="milestone-mark-card__value">4%</div>
+                <div class="milestone-mark-card__sub">(Group)</div>
+              </div>
+              <div class="milestone-mark-card">
+                <div class="milestone-mark-card__label">Website</div>
+                <div class="milestone-mark-card__value">2%</div>
+              </div>
+              <div class="milestone-mark-card">
+                <div class="milestone-mark-card__label">Check Lists</div>
+                <div class="milestone-mark-card__value">2%</div>
+              </div>
+              <div class="milestone-mark-card">
+                <div class="milestone-mark-card__label">Logbook</div>
+                <div class="milestone-mark-card__value">2%</div>
+              </div>
+              <div class="milestone-mark-card milestone-mark-card--highlight">
+                <div class="milestone-mark-card__label">Combined Total</div>
+                <div class="milestone-mark-card__value">55%</div>
+              </div>
+            </div>
+          </div>
+      </div>
+    </section>
+
+    <!-- ========== DOCUMENTS SECTION ========== -->
+    <section class="section" id="page-documents">
+      <div class="container">
+        <div class="section__header">
+          <span class="section__tag">📄 Documents</span>
+          <h1 class="section__title">Documents</h1>
+          <p class="section__subtitle">
+            View all official project documents, reports, and research
+            deliverables in the shared OneDrive folder.
+          </p>
+        </div>
+
+        <!-- Local search for documents -->
+        <div class="local-search-bar" id="docsSearch">
+          <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/>
+          </svg>
+          <input
+            type="text"
+            id="docsSearchInput"
+            placeholder="Filter documents…"
+            oninput="filterDocs(this.value)"
+            aria-label="Filter documents"
+          />
+          <button class="local-search-bar__clear" onclick="clearLocalSearch('docsSearchInput', filterDocs)" aria-label="Clear filter" style="display:none" id="docsSearchClear">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+          </button>
+        </div>
+        <div class="docs-list" id="docsList">
+          <a
+            href="https://drive.google.com/drive/folders/1xTow8nK7-BVwQ290KuskbXmg9WXXuUZv?usp=sharing"
+            class="doc-item reveal"
+            id="doc-charter"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <div class="doc-item__icon">📋</div>
+            <div class="doc-item__info">
+              <div class="doc-item__title">Project Charter</div>
+              <div class="doc-item__meta">
+                The foundational project charter document outlining the project
+                scope, objectives, team responsibilities, and initial research
+                direction.
+              </div>
+            </div>
+            <div class="doc-item__action">
+              <svg
+                width="16"
+                height="16"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
+                <polyline points="7 10 12 15 17 10" />
+                <line x1="12" y1="15" x2="12" y2="3" />
+              </svg>
+              View
+            </div>
           </a>
-          <a class="btn btn--outline" onclick="navigateTo('about'); return false;" href="#">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
-            Meet the Team
+
+          <a
+            href="https://drive.google.com/drive/folders/13PlTEwatGwwU9YjFgmElXAXwFGTSV_jK?usp=sharing"
+            class="doc-item reveal"
+            id="doc-research"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <div class="doc-item__icon">📝</div>
+            <div class="doc-item__info">
+              <div class="doc-item__title">Proposal Document</div>
+              <div class="doc-item__meta">
+                The full research proposal report covering the problem
+                statement, literature survey, objectives, methodology, and
+                commercialization plan.
+              </div>
+            </div>
+            <div class="doc-item__action">
+              <svg
+                width="16"
+                height="16"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
+                <polyline points="7 10 12 15 17 10" />
+                <line x1="12" y1="15" x2="12" y2="3" />
+              </svg>
+              View
+            </div>
+          </a>
+
+          <a
+            href="https://drive.google.com/drive/folders/1YONfWzekmCHyx0UoybrH0a6SMKz_B0zw?usp=sharing"
+            class="doc-item reveal"
+            id="doc-status2"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <div class="doc-item__icon">📊</div>
+            <div class="doc-item__info">
+              <div class="doc-item__title">Check List Documents</div>
+              <div class="doc-item__meta">
+                Formal assessment check lists submitted across project
+                milestones, ensuring all evaluation criteria and deliverables
+                have been met.
+              </div>
+            </div>
+            <div class="doc-item__action">
+              <svg
+                width="16"
+                height="16"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
+                <polyline points="7 10 12 15 17 10" />
+                <line x1="12" y1="15" x2="12" y2="3" />
+              </svg>
+              View
+            </div>
+          </a>
+
+          <a
+            href="https://drive.google.com/drive/folders/1te-qpNHuyl1yVTougOqLjgJFfVgKzvgW?usp=sharing"
+            class="doc-item reveal"
+            id="doc-final"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <div class="doc-item__icon">📕</div>
+            <div class="doc-item__info">
+              <div class="doc-item__title">Final Report</div>
+              <div class="doc-item__meta">
+                The complete final documentation set including individual and
+                group reports, research paper, logbook, and all supporting final
+                submission materials (4 documents).
+              </div>
+            </div>
+            <div class="doc-item__action">
+              <svg
+                width="16"
+                height="16"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
+                <polyline points="7 10 12 15 17 10" />
+                <line x1="12" y1="15" x2="12" y2="3" />
+              </svg>
+              View
+            </div>
           </a>
         </div>
       </div>
+    </section>
 
-      <div class="hero__scroll">
-        <div class="hero__scroll-mouse"></div>
-      </div>
-
-      <div class="hero__stats">
-        <div class="hero__stats-inner">
-          <div class="hero__stat">
-            <div class="hero__stat-number">&lt; 300</div>
-            <div class="hero__stat-label">Remaining Speakers</div>
-          </div>
-          <div class="hero__stat">
-            <div class="hero__stat-number">4</div>
-            <div class="hero__stat-label">Research Components</div>
-          </div>
-          <div class="hero__stat">
-            <div class="hero__stat-number">3D</div>
-            <div class="hero__stat-label">Phonetic Modelling</div>
-          </div>
-          <div class="hero__stat">
-            <div class="hero__stat-number">AI</div>
-            <div class="hero__stat-label">Powered Translation</div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- Gallery Section -->
-    <div class="home-gallery">
-      <div class="section__header">
-        <span class="section__tag">📷 Field Research</span>
-        <h2 class="section__title">From the Field</h2>
-        <p class="section__subtitle">Documenting the living heritage of the Vedda community through immersive site visits and cultural engagement.</p>
-      </div>
-      <div class="home-gallery__grid">
-        <div class="home-gallery__item reveal">
-          <img src="assets/field-visit-1.jpg" alt="Vedda community village during site visit" loading="lazy" width="800" height="500">
-          <div class="home-gallery__caption">Traditional Vedda settlement - field research site visit</div>
-        </div>
-        <div class="home-gallery__item reveal">
-          <img src="assets/field-visit-2.jpg" alt="Vedda community village during site visit" loading="lazy" width="800" height="500">
-          <div class="home-gallery__caption">Traditional Vedda settlement - field research site visit</div>
-        </div>
-        <div class="home-gallery__item reveal">
-          <img src="assets/field-visit-3.jpg" alt="Vedda community village during site visit" loading="lazy" width="800" height="500">
-          <div class="home-gallery__caption">Traditional Vedda settlement - field research site visit</div>
-        </div>
-        <div class="home-gallery__item reveal">
-          <img src="assets/artifacts.png" alt="Indigenous artifacts documented during research" loading="lazy" width="800" height="500">
-          <div class="home-gallery__caption">Cultural artifacts being documented and catalogued</div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ========== DOMAIN SECTION ========== -->
-  <section class="section" id="page-domain">
-    <div class="container">
-      <div class="section__header">
-        <span class="section__tag">🔬 Research Domain</span>
-        <h1 class="section__title">Research Domain</h1>
-        <p class="section__subtitle">Understanding the challenges, gaps, and innovative approaches to preserving endangered indigenous heritage.</p>
-      </div>
-
-      <div class="domain-grid reveal">
-        <!-- Literature Survey -->
-        <div class="domain-card domain-card--wide">
-          <div class="domain-card__icon">📚</div>
-          <div class="domain-card__number">00 - Literature Survey</div>
-          <h2 class="domain-card__title">Literature Survey</h2>
-          <div class="domain-card__text">
-            <p>Prior research shows that cascaded translation pipelines are effective for multilingual systems, and Sinhala-English neural machine translation can provide a practical bridge for related low-resource languages such as Vedda [1], [2]. Studies on phonemic transcription also emphasize that languages without standardized writing systems need both manual and automated annotation support to make speech data usable at scale [3].</p>
-            <p style="margin-top: 12px;">Work on Vedda preservation consistently points to documentation, digitization, and technology-enabled support as the core requirements for survival [4], [5]. Web platforms have improved access to indigenous language resources, but many still focus on content delivery rather than learner assistance [6]. In contrast, AI-based vocabulary learning research highlights the value of adaptive support and guided practice, which this project extends to Vedda language learning [7].</p>
-            <p style="margin-top: 12px;">For digital heritage preservation, OAIS provides a robust archival model while CIDOC CRM supports interoperable cultural metadata and semantic description [8], [9]. Automated identification research further shows that deep learning and hybrid CNN-SVM methods can perform strongly on structured classification problems, making them suitable for artifact recognition workflows [10].</p>
-            <p style="margin-top: 12px;">Speech visualization studies demonstrate that 3D articulatory feedback improves pronunciation learning by exposing mouth and tongue motion instead of relying only on text or audio [11]. Recent lip-sync and tongue-animation methods confirm that realistic motion improves intelligibility and naturalness [12], [13], and WebGL talking-head systems show that these ideas can run directly in browsers [14].</p>
-            <p style="margin-top: 12px;"><strong>Research implication:</strong> the proposed platform combines browser-based 3D rendering, IPA-driven viseme control, translation support, archival metadata, and adaptive learner guidance to address the current gap in Vedda-centered intelligent support.</p>
-          </div>
-        </div>
-
-        <!-- Research Problem -->
-        <div class="domain-card">
-          <div class="domain-card__icon">⚠️</div>
-          <div class="domain-card__number">01 - Problem</div>
-          <h2 class="domain-card__title">Research Problem</h2>
-          <div class="domain-card__text">
-            <p>The Vedda language of Sri Lanka is critically endangered - an oral-only language spoken by fewer than <strong>300 people</strong>, with no written script, formal grammar, or digital footprint. As elder speakers pass away, entire vocabularies, oral histories, and cultural knowledge are lost irreversibly.</p>
-            <p style="margin-top: 12px;">Without immediate intervention through modern digital preservation technologies, this unique linguistic and cultural identity faces <strong>complete extinction within a single generation</strong>.</p>
-          </div>
-        </div>
-
-        <!-- Research Gap -->
-        <div class="domain-card">
-          <div class="domain-card__icon">🔍</div>
-          <div class="domain-card__number">02 - Gap</div>
-          <h2 class="domain-card__title">Research Gap</h2>
-          <div class="domain-card__text">
-            <p>Current preservation efforts rely on <strong>static text-based dictionaries</strong> that fundamentally fail to capture the multi-dimensional nature of an oral language.</p>
-            <ul>
-              <li>Existing tools cannot perform real-time Vedda-to-Sinhala speech translation</li>
-              <li>No AI model exists for identifying and classifying Vedda cultural artifacts</li>
-              <li>No 3D phonetic visualization exists for Vedda speech sounds</li>
-              <li>No gamified learning platform engages younger generations in language preservation</li>
-            </ul>
-          </div>
-        </div>
-      </div>
-
-      <div class="domain-grid reveal" style="margin-top: 32px;">
-        <!-- Objectives -->
-        <div class="domain-card">
-          <div class="domain-card__icon">🎯</div>
-          <div class="domain-card__number">03 - Objectives</div>
-          <h2 class="domain-card__title">Research Objectives</h2>
-          <div class="domain-card__text">
-            <ul>
-              <li><strong>3D Phonetic Learning Model</strong> - Build interactive 3D visualizations of mouth, tongue, and throat positions for accurate Vedda pronunciation learning</li>
-              <li><strong>Real-time Speech Translation</strong> - Develop a fine-tuned Whisper-based model for Vedda ↔ Sinhala real-time speech translation and transcription</li>
-              <li><strong>AI Artifact Identification</strong> - Create a Hybrid CNN-SVM classifier for automated recognition and documentation of Vedda cultural artifacts</li>
-              <li><strong>Gamified Learning Platform</strong> - Design an engaging, game-based system to teach Vedda language and culture to younger generations</li>
-            </ul>
-          </div>
-        </div>
-
-        <!-- Methodology -->
-        <div class="domain-card">
-          <div class="domain-card__icon">⚙️</div>
-          <div class="domain-card__number">04 - Methodology</div>
-          <h2 class="domain-card__title">Methodology</h2>
-          <div class="domain-card__text">
-            <p>Our system employs a <strong>microservices architecture</strong> integrating four specialized AI/ML components:</p>
-            <ul>
-              <li><strong>Hybrid CNN-SVM Model</strong> - Combines deep feature extraction (CNN) with robust classification (SVM) for artifact identification with high accuracy</li>
-              <li><strong>Fine-tuned Whisper Model</strong> - OpenAI's Whisper adapted for low-resource Vedda speech recognition and translation</li>
-              <li><strong>3D Phonetic Engine</strong> - Real-time articulation modelling using Three.js for interactive mouth position visualization</li>
-              <li><strong>Gamification Framework</strong> - Points, levels, and cultural challenges layered over language lessons to drive engagement</li>
-            </ul>
-          </div>
-        </div>
-      </div>
-
-      <div class="domain-card domain-card--wide" style="margin-top: 32px;">
-        <div class="domain-card__icon">🛠️</div>
-        <div class="domain-card__number">Technologies Used</div>
-        <h2 class="domain-card__title">Technologies Used</h2>
-        <div class="domain-card__text">
-          <p>These are the technologies used across the project modules for vocabulary learning, speech translation, digital preservation, and 3D pronunciation learning.</p>
-          <ul>
-            <li><strong>Web Technologies</strong> - React.js, HTML, CSS, JavaScript, Node.js, and Express for the interactive web applications and APIs</li>
-            <li><strong>Databases</strong> - MongoDB, Firebase, and SQLite for user data, learning progress, and preservation records</li>
-            <li><strong>AI / ML Frameworks</strong> - PyTorch, Hugging Face Transformers, and Keras for speech, translation, and classification workflows</li>
-            <li><strong>Artifact Identification</strong> - CNN (Convolutional Neural Network) + SVM (Support Vector Machine) hybrid model for artifact identification and classification</li>
-            <li><strong>Speech and Translation</strong> - Whisper, OpenNMT, MarianMT, Coqui TTS, TensorFlowTTS, Google Speech-to-Text, and Web Speech API</li>
-            <li><strong>Adaptive Learning</strong> - SM-2 spaced repetition, Playlyfe, and GamifyJS for vocabulary practice and gamification</li>
-            <li><strong>3D and Media</strong> - Three.js, WebGL, Blender, Mixamo, GSAP, and Web Audio API for 3D phonetic and audio-visual learning</li>
-            <li><strong>Speech and Phonetics</strong> - IPA-driven viseme control and custom phoneme sets for Vedda pronunciation support</li>
-            <li><strong>Deployment</strong> - GitHub, Vercel, and Azure for source control and hosting</li>
-          </ul>
-        </div>
-      </div>
-
-      <div class="system-diagram-container">
-        <h1>System Architecture</h1>
-        <p class="system-diagram-description">
-          A modular microservices layout connecting the client, gateway, AI services, data stores, and external APIs into one preservation platform.
-        </p>
-        <div class="system-diagram-img">
-          <img src="assets/System Diagram.png" alt="System architecture diagram showing microservices for artifact classification, speech translation, 3D phonetics, and gamified learning" loading="lazy">
-        </div>
-      </div>
-
-      <div class="domain-card domain-card--wide" style="margin-top: 32px;">
-        <div class="domain-card__icon">📝</div>
-        <div class="domain-card__number">References</div>
-        <h2 class="domain-card__title">References</h2>
-        <div class="domain-card__text">
-          <ol class="reference-list">
-            <li class="reference-item"><strong>[1]</strong> Andrei Popescu-Belis, Alexis Allemann, Teo Ferrari, Gopal Krishnamani, “Speech-to-speech translation pipelines for conversations in low-resource languages,” in Proc. MTSummit, Paris, France, 2025 (to appear).</li>
-            <li class="reference-item"><strong>[2]</strong> Sanjana Rajapaksha, Sashintha Juwan Podige, Sanaya Lokusinghe Arachchige, D. I. de Silva, Avishka Manathunga, and Eishan Weerasinghe, “Sinhala to English language translation model,” SLIIT Tech. Rep., Oct. 2023.</li>
-            <li class="reference-item"><strong>[3]</strong> Guillaume Wisniewski, S&#233;verine Guillaume, and Alexis Michaud, “Phonemic transcription of low-resource languages: To what extent can preprocessing be automated?,” in Proc. Joint Workshop on SLTU/CCURL, Marseille, France, 2020, pp. 306–315.</li>
-            <li class="reference-item"><strong>[4]</strong> P. Weerasekara, “The Value of Protecting Endangered Language in Culture: With Special Reference to Examine the Vedda Language in Sri Lanka,” International Journal of Research and Innovation in Social Science, vol. 4, pp. 429–434, 2021.</li>
-            <li class="reference-item"><strong>[5]</strong> N. S. Dash, “Documentation and digitization of endangered indigenous languages: Methods and strategies,” in Proceedings of the International Mother Language Day 2024, Colombo, Sri Lanka, Feb. 21, 2024, pp. 5–24.</li>
-            <li class="reference-item"><strong>[6]</strong> N. Melgarejo and L. Camacho, “Implementation of a web platform for the preservation of American native languages,” in Proc. 2018 IEEE 25th Int. Conf. Electronics, Electrical Eng. &amp; Computing (INTERCON 2018), Lima, Peru, 2018, Art. no. 8526430.</li>
-            <li class="reference-item"><strong>[7]</strong> R. Teymouri, “Recent developments in mobile-assisted vocabulary learning: A mini review of published studies focusing on digital flashcards,” Frontiers in Education, vol. 9, Art. 1496578, 2024, doi: 10.3389/feduc.2024.1496578.</li>
-            <li class="reference-item"><strong>[8]</strong> ISO, Space data and information transfer systems - Open archival information system (OAIS) - Reference model, ISO 14721:2012, 2012.</li>
-            <li class="reference-item"><strong>[9]</strong> M. Doerr, “The CIDOC conceptual reference model: An ontological approach to semantic interoperability of metadata,” AI Mag., vol. 24, no. 3, pp. 75-92, 2003.</li>
-            <li class="reference-item"><strong>[10]</strong> Y. Tang, “Deep learning using linear support vector machines,” arXiv:1306.0239, 2013.</li>
-            <li class="reference-item"><strong>[11]</strong> M. Story, B. Bunton, and J. P. H. W. Titze, “Dynamic 3D Visualization of Vocal Tract Shaping During Speech,” The Journal of the Acoustical Society of America, vol. 132, no. 4, pp. 2434-2445, 2012.</li>
-            <li class="reference-item"><strong>[12]</strong> K. R. Prajwal, R. Mukhopadhyay, V. P. Namboodiri, and C. V. Jawahar, “A Lip Sync Expert Is All You Need for Speech to Lip Generation in the Wild,” arXiv preprint arXiv:2008.10010, 2020.</li>
-            <li class="reference-item"><strong>[13]</strong> J. Medina, P. Arguedas, and J. Luque, “Speech Driven Tongue Animation,” in Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR), 2022, pp. 121-130.</li>
-            <li class="reference-item"><strong>[14]</strong> G. R. Leone and P. Cosi, “LUCIA-WebGL: A Web Based Italian MPEG-4 Talking Head,” in Proceedings of AVSP 2011, 2011.</li>
-          </ol>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ========== MILESTONES SECTION ========== -->
-  <section class="section" id="page-milestones">
-    <div class="container">
-      <div class="section__header">
-        <span class="section__tag">📅 Timeline</span>
-        <h1 class="section__title">Project Milestones</h1>
-        <p class="section__subtitle">Tracking progress across key academic deliverables and assessment checkpoints.</p>
-      </div>
-
-      <!-- Visual Timeline -->
-      <div class="milestones-timeline reveal">
-        <div class="timeline-node complete" onclick="selectMilestone('proposal')">
-          <div class="timeline-node__dot"></div>
-          <div class="timeline-node__label">Proposal</div>
-        </div>
-        <div class="timeline-node complete" onclick="selectMilestone('pp1')">
-          <div class="timeline-node__dot"></div>
-          <div class="timeline-node__label">Progress 1</div>
-        </div>
-        <div class="timeline-node in-progress" onclick="selectMilestone('pp2')">
-          <div class="timeline-node__dot"></div>
-          <div class="timeline-node__label">Progress 2</div>
-        </div>
-        <div class="timeline-node" onclick="selectMilestone('final')">
-          <div class="timeline-node__dot"></div>
-          <div class="timeline-node__label">Final</div>
-        </div>
-        <div class="timeline-node" onclick="selectMilestone('viva')">
-          <div class="timeline-node__dot"></div>
-          <div class="timeline-node__label">Viva</div>
-        </div>
-      </div>
-
-      <!-- Dropdown -->
-      <div class="milestones-wrapper">
-        <div class="milestones-select reveal">
-          <label for="milestoneDropdown">Select Milestone</label>
-          <select class="milestones-dropdown" id="milestoneDropdown" onchange="showMilestone(this.value)">
-            <option value="proposal">Project Proposal</option>
-            <option value="pp1">Progress Presentation 1</option>
-            <option value="pp2" selected>Progress Presentation 2</option>
-            <option value="final">Final Assessment</option>
-            <option value="viva">Viva</option>
-          </select>
-        </div>
-
-        <!-- Proposal -->
-        <div class="milestone-detail active" id="milestone-proposal">
-          <div class="milestone-detail__header">
-            <span class="milestone-detail__status status--complete">✓ Completed</span>
-          </div>
-          <h2 class="milestone-detail__title">Project Proposal</h2>
-          <p class="milestone-detail__desc">
-            The initial project proposal was presented and approved, outlining the research problem of Vedda language extinction, 
-            the proposed technological solutions, and the project timeline. The proposal established the four core research components 
-            and defined individual contributions for each team member.
+    <!-- ========== SLIDES SECTION ========== -->
+    <section class="section" id="page-slides">
+      <div class="container">
+        <div class="section__header">
+          <span class="section__tag">📽️ Presentations</span>
+          <h1 class="section__title">Presentation Slides</h1>
+          <p class="section__subtitle">
+            View presentation slides from each project milestone and assessment
+            in the shared OneDrive folder.
           </p>
-          <div class="milestone-detail__marks">
-            <div class="milestone-mark-card">
-              <div class="milestone-mark-card__label">Status</div>
-              <div class="milestone-mark-card__value">Complete</div>
-            </div>
-            <div class="milestone-mark-card">
-              <div class="milestone-mark-card__label">Deliverable</div>
-              <div class="milestone-mark-card__value">Proposal Document</div>
-            </div>
-            <div class="milestone-mark-card">
-              <div class="milestone-mark-card__label">Assessment</div>
-              <div class="milestone-mark-card__value">Approved</div>
-            </div>
-          </div>
-          <div class="progress-bar"><div class="progress-bar__fill" style="width: 100%"></div></div>
         </div>
 
-        <!-- PP1 -->
-        <div class="milestone-detail" id="milestone-pp1">
-          <div class="milestone-detail__header">
-            <span class="milestone-detail__status status--complete">✓ Completed</span>
-          </div>
-          <h2 class="milestone-detail__title">Progress Presentation 1</h2>
-          <p class="milestone-detail__desc">
-            The first progress presentation demonstrated initial implementations of each component: the CNN feature extraction pipeline, 
-            Whisper model fine-tuning on collected Vedda speech data, early 3D mouth modelling prototypes, and the gamification 
-            framework architecture. Feedback from the panel guided subsequent development.
-          </p>
-          <div class="milestone-detail__marks">
-            <div class="milestone-mark-card">
-              <div class="milestone-mark-card__label">Status</div>
-              <div class="milestone-mark-card__value">Complete</div>
-            </div>
-            <div class="milestone-mark-card">
-              <div class="milestone-mark-card__label">Deliverable</div>
-              <div class="milestone-mark-card__value">Interim Report</div>
-            </div>
-            <div class="milestone-mark-card">
-              <div class="milestone-mark-card__label">Completion</div>
-              <div class="milestone-mark-card__value">100%</div>
-            </div>
-          </div>
-          <div class="progress-bar"><div class="progress-bar__fill" style="width: 100%"></div></div>
+        <!-- Local search for slides -->
+        <div class="local-search-bar" id="slidesSearch">
+          <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/>
+          </svg>
+          <input
+            type="text"
+            id="slidesSearchInput"
+            placeholder="Filter presentations…"
+            oninput="filterSlides(this.value)"
+            aria-label="Filter presentations"
+          />
+          <button class="local-search-bar__clear" onclick="clearLocalSearch('slidesSearchInput', filterSlides)" aria-label="Clear filter" style="display:none" id="slidesSearchClear">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+          </button>
         </div>
-
-        <!-- PP2 -->
-        <div class="milestone-detail" id="milestone-pp2">
-          <div class="milestone-detail__header">
-            <span class="milestone-detail__status status--progress">⏳ 90%+ Complete</span>
-          </div>
-          <h2 class="milestone-detail__title">Progress Presentation 2</h2>
-          <p class="milestone-detail__desc">
-            The second progress presentation showcases near-complete implementations: the Hybrid CNN-SVM artifact classifier 
-            achieving target accuracy, real-time Vedda-Sinhala translation demos, interactive 3D phonetic visualizations, 
-            and a playable gamified learning prototype. Final integration and testing are underway.
-          </p>
-          <div class="milestone-detail__marks">
-            <div class="milestone-mark-card">
-              <div class="milestone-mark-card__label">Status</div>
-              <div class="milestone-mark-card__value">In Progress</div>
-            </div>
-            <div class="milestone-mark-card">
-              <div class="milestone-mark-card__label">Deliverable</div>
-              <div class="milestone-mark-card__value">Progress Report</div>
-            </div>
-            <div class="milestone-mark-card">
-              <div class="milestone-mark-card__label">Completion</div>
-              <div class="milestone-mark-card__value">90%+</div>
-            </div>
-          </div>
-          <div class="progress-bar"><div class="progress-bar__fill" style="width: 92%"></div></div>
-        </div>
-
-        <!-- Final -->
-        <div class="milestone-detail" id="milestone-final">
-          <div class="milestone-detail__header">
-            <span class="milestone-detail__status status--upcoming">◇ Upcoming</span>
-          </div>
-          <h2 class="milestone-detail__title">Final Assessment</h2>
-          <p class="milestone-detail__desc">
-            The final assessment will present the fully integrated system demonstrating all four components working together 
-            in a unified platform. The complete research paper, system documentation, and user evaluation results will be submitted 
-            alongside a live demonstration of the end-to-end digital preservation pipeline.
-          </p>
-          <div class="milestone-detail__marks">
-            <div class="milestone-mark-card">
-              <div class="milestone-mark-card__label">Status</div>
-              <div class="milestone-mark-card__value">Upcoming</div>
-            </div>
-            <div class="milestone-mark-card">
-              <div class="milestone-mark-card__label">Deliverable</div>
-              <div class="milestone-mark-card__value">Final Report & Demo</div>
-            </div>
-            <div class="milestone-mark-card">
-              <div class="milestone-mark-card__label">Completion</div>
-              <div class="milestone-mark-card__value">-</div>
-            </div>
-          </div>
-          <div class="progress-bar"><div class="progress-bar__fill" style="width: 0%"></div></div>
-        </div>
-
-        <!-- Viva -->
-        <div class="milestone-detail" id="milestone-viva">
-          <div class="milestone-detail__header">
-            <span class="milestone-detail__status status--upcoming">◇ Upcoming</span>
-          </div>
-          <h2 class="milestone-detail__title">Viva Voce</h2>
-          <p class="milestone-detail__desc">
-            The viva voce examination will involve an oral defence of the complete research project before a panel of examiners. 
-            Each team member will present their individual contribution and respond to questions about methodology, results, 
-            and implications of the research. This is the final academic assessment milestone.
-          </p>
-          <div class="milestone-detail__marks">
-            <div class="milestone-mark-card">
-              <div class="milestone-mark-card__label">Status</div>
-              <div class="milestone-mark-card__value">Upcoming</div>
-            </div>
-            <div class="milestone-mark-card">
-              <div class="milestone-mark-card__label">Format</div>
-              <div class="milestone-mark-card__value">Oral Defence</div>
-            </div>
-            <div class="milestone-mark-card">
-              <div class="milestone-mark-card__label">Completion</div>
-              <div class="milestone-mark-card__value">-</div>
-            </div>
-          </div>
-          <div class="progress-bar"><div class="progress-bar__fill" style="width: 0%"></div></div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ========== DOCUMENTS SECTION ========== -->
-  <section class="section" id="page-documents">
-    <div class="container">
-      <div class="section__header">
-        <span class="section__tag">📄 Documents</span>
-        <h1 class="section__title">Documents</h1>
-        <p class="section__subtitle">View all official project documents, reports, and research deliverables in the shared OneDrive folder.</p>
-      </div>
-
-      <div class="docs-list">
-        <a href="https://mysliit.sharepoint.com/:f:/s/CDAPSubmissionCloud/IgCwNWWwltN2TZ2jXUKA8u3QAe3V3a7pDzT0lztK6GY0VYM?e=foTRMn" class="doc-item reveal" id="doc-charter" target="_blank" rel="noopener noreferrer">
-          <div class="doc-item__icon">📋</div>
-          <div class="doc-item__info">
-            <div class="doc-item__title">Project Charter</div>
-            <div class="doc-item__meta">PDF • Defines project scope, objectives, and team structure</div>
-          </div>
-          <div class="doc-item__action">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
-            View
-          </div>
-        </a>
-
-        <a href="https://mysliit.sharepoint.com/:f:/s/CDAPSubmissionCloud/IgCwNWWwltN2TZ2jXUKA8u3QAe3V3a7pDzT0lztK6GY0VYM?e=foTRMn" class="doc-item reveal" id="doc-proposal" target="_blank" rel="noopener noreferrer">
-          <div class="doc-item__icon">📑</div>
-          <div class="doc-item__info">
-            <div class="doc-item__title">Proposal Document</div>
-            <div class="doc-item__meta">PDF • Full research proposal with literature review and methodology</div>
-          </div>
-          <div class="doc-item__action">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
-            View
-          </div>
-        </a>
-
-        <a href="https://mysliit.sharepoint.com/:f:/s/CDAPSubmissionCloud/IgCwNWWwltN2TZ2jXUKA8u3QAe3V3a7pDzT0lztK6GY0VYM?e=foTRMn" class="doc-item reveal" id="doc-srs" target="_blank" rel="noopener noreferrer">
-          <div class="doc-item__icon">📐</div>
-          <div class="doc-item__info">
-            <div class="doc-item__title">SRS Document</div>
-            <div class="doc-item__meta">PDF • Software Requirements Specification for all system components</div>
-          </div>
-          <div class="doc-item__action">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
-            View
-          </div>
-        </a>
-
-        <a href="https://mysliit.sharepoint.com/:f:/s/CDAPSubmissionCloud/IgCwNWWwltN2TZ2jXUKA8u3QAe3V3a7pDzT0lztK6GY0VYM?e=foTRMn" class="doc-item reveal" id="doc-status1" target="_blank" rel="noopener noreferrer">
-          <div class="doc-item__icon">📊</div>
-          <div class="doc-item__info">
-            <div class="doc-item__title">Status Document 1</div>
-            <div class="doc-item__meta">PDF • First progress report and interim findings</div>
-          </div>
-          <div class="doc-item__action">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
-            View
-          </div>
-        </a>
-
-        <a href="https://mysliit.sharepoint.com/:f:/s/CDAPSubmissionCloud/IgCwNWWwltN2TZ2jXUKA8u3QAe3V3a7pDzT0lztK6GY0VYM?e=foTRMn" class="doc-item reveal" id="doc-status2" target="_blank" rel="noopener noreferrer">
-          <div class="doc-item__icon">📊</div>
-          <div class="doc-item__info">
-            <div class="doc-item__title">Status Document 2</div>
-            <div class="doc-item__meta">PDF • Second progress report with updated results</div>
-          </div>
-          <div class="doc-item__action">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
-            View
-          </div>
-        </a>
-
-        <a href="https://mysliit.sharepoint.com/:f:/s/CDAPSubmissionCloud/IgCwNWWwltN2TZ2jXUKA8u3QAe3V3a7pDzT0lztK6GY0VYM?e=foTRMn" class="doc-item reveal" id="doc-research" target="_blank" rel="noopener noreferrer">
-          <div class="doc-item__icon">📝</div>
-          <div class="doc-item__info">
-            <div class="doc-item__title">Research Paper</div>
-            <div class="doc-item__meta">PDF • IEEE-formatted academic research paper</div>
-          </div>
-          <div class="doc-item__action">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
-            View
-          </div>
-        </a>
-
-        <a href="https://mysliit.sharepoint.com/:f:/s/CDAPSubmissionCloud/IgCwNWWwltN2TZ2jXUKA8u3QAe3V3a7pDzT0lztK6GY0VYM?e=foTRMn" class="doc-item reveal" id="doc-final" target="_blank" rel="noopener noreferrer">
-          <div class="doc-item__icon">📕</div>
-          <div class="doc-item__info">
-            <div class="doc-item__title">Final Report</div>
-            <div class="doc-item__meta">PDF • Comprehensive final project report and evaluation</div>
-          </div>
-          <div class="doc-item__action">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
-            View
-          </div>
-        </a>
-      </div>
-    </div>
-  </section>
-
-  <!-- ========== SLIDES SECTION ========== -->
-  <section class="section" id="page-slides">
-    <div class="container">
-      <div class="section__header">
-        <span class="section__tag">📽️ Presentations</span>
-        <h1 class="section__title">Presentation Slides</h1>
-        <p class="section__subtitle">View presentation slides from each project milestone and assessment in the shared OneDrive folder.</p>
-      </div>
-
-      <div class="docs-list">
-        <a href="https://mysliit.sharepoint.com/:f:/s/CDAPSubmissionCloud/IgCwNWWwltN2TZ2jXUKA8u3QAe3V3a7pDzT0lztK6GY0VYM?e=foTRMn" class="doc-item reveal" id="slide-proposal" target="_blank" rel="noopener noreferrer">
-          <div class="doc-item__icon">🖥️</div>
-          <div class="doc-item__info">
-            <div class="doc-item__title">Proposal Presentation</div>
-            <div class="doc-item__meta">PPTX • Initial project proposal presentation slides</div>
-          </div>
-          <div class="doc-item__action">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
-            View
-          </div>
-        </a>
-
-        <a href="https://mysliit.sharepoint.com/:f:/s/CDAPSubmissionCloud/IgCwNWWwltN2TZ2jXUKA8u3QAe3V3a7pDzT0lztK6GY0VYM?e=foTRMn" class="doc-item reveal" id="slide-pp1" target="_blank" rel="noopener noreferrer">
-          <div class="doc-item__icon">🖥️</div>
-          <div class="doc-item__info">
-            <div class="doc-item__title">Progress Presentation 1</div>
-            <div class="doc-item__meta">PPTX • First progress review presentation slides</div>
-          </div>
-          <div class="doc-item__action">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
-            View
-          </div>
-        </a>
-
-        <a href="https://mysliit.sharepoint.com/:f:/s/CDAPSubmissionCloud/IgCwNWWwltN2TZ2jXUKA8u3QAe3V3a7pDzT0lztK6GY0VYM?e=foTRMn" class="doc-item reveal" id="slide-pp2" target="_blank" rel="noopener noreferrer">
-          <div class="doc-item__icon">🖥️</div>
-          <div class="doc-item__info">
-            <div class="doc-item__title">Progress Presentation 2</div>
-            <div class="doc-item__meta">PPTX • Second progress review presentation slides</div>
-          </div>
-          <div class="doc-item__action">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
-            View
-          </div>
-        </a>
-
-        <a href="https://mysliit.sharepoint.com/:f:/s/CDAPSubmissionCloud/IgCwNWWwltN2TZ2jXUKA8u3QAe3V3a7pDzT0lztK6GY0VYM?e=foTRMn" class="doc-item reveal" id="slide-final" target="_blank" rel="noopener noreferrer">
-          <div class="doc-item__icon">🖥️</div>
-          <div class="doc-item__info">
-            <div class="doc-item__title">Final Presentation</div>
-            <div class="doc-item__meta">PPTX • Final assessment presentation slides</div>
-          </div>
-          <div class="doc-item__action">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
-            View
-          </div>
-        </a>
-      </div>
-    </div>
-  </section>
-
-  <!-- ========== ABOUT US SECTION ========== -->
-  <section class="section" id="page-about">
-    <div class="container">
-      <div class="section__header">
-        <span class="section__tag">👥 Our Team</span>
-        <h1 class="section__title">About Us</h1>
-        <p class="section__subtitle">Meet the researchers behind the digital preservation of Sri Lankan Vedda culture.</p>
-      </div>
-
-      <div class="about-section">
-        <div class="supervisor-grid">
-          <!-- Supervisor -->
-          <div class="supervisor-card reveal">
-            <div class="supervisor-card__photo">
-              <img src="/assets/silva.jpg" alt="">
-            </div>
-            <div class="supervisor-card__info">
-              <h3>Ms. Hansi De Silva</h3>
-              <p style="color: rgba(255,255,255,0.85); font-size: 16px; margin-bottom: 4px;">Supervisor</p>
-              <p><a href="mailto:hansi.d@sliit.lk" style="color: inherit;">hansi.d@sliit.lk</a></p>
-            </div>
-          </div>
-
-          <!-- Co-Supervisor -->
-          <div class="supervisor-card reveal">
-            <div class="supervisor-card__photo">
-              <img src="/assets/jayalath.jpg" alt="">
-            </div>
-            <div class="supervisor-card__info">
-              <h3>Ms. Thilini Jayalath</h3>
-              <p style="color: rgba(255,255,255,0.85); font-size: 16px; margin-bottom: 4px;">Co-Supervisor</p>
-              <p><a href="mailto:thilini.j@sliit.lk" style="color: inherit;">thilini.j@sliit.lk</a></p>
-            </div>
-          </div>
-        </div>
-
-        <!-- Team Members -->
-        <div class="team-grid">
-
-           <!-- Member 1: Welikanna -->
-          <div class="team-card reveal">
-            <div class="team-card__photo">
-              <img src="/assets/welikanna.jpg" alt="">
-            </div>
-            <h3 class="team-card__itnumber">IT22196910</h3>
-            <h3 class="team-card__name">Welikanna S. T.</h3>
-            <p class="team-card__role">Undergraduate Researcher</p>
-            <div class="team-card__component">🎮 Gamified Learning</div>
-            <p class="team-card__email">
-              <a href="mailto:it22196910@my.sliit.lk">it22196910@my.sliit.lk</a>
-            </p>
-          </div>
-
-          <!-- Member 2: Liyanage -->
-          <div class="team-card reveal">
-            <div class="team-card__photo">
-              <img src="/assets/liyanage.jpg" alt="">
-            </div>
-            <h3 class="team-card__itnumber">IT22144430</h3>
-            <h3 class="team-card__name">Liyanage N. S.</h3>
-            <p class="team-card__role">Undergraduate Researcher</p>
-            <div class="team-card__component">🈂️ Translator</div>
-            <p class="team-card__email">
-              <a href="mailto:it22144430@my.sliit.lk">it22144430@my.sliit.lk</a>
-            </p>
-          </div>
-          
-          <!-- Member 3: Peiris -->
-          <div class="team-card reveal">
-            <div class="team-card__photo">
-              <img src="/assets/peiris.jpg" alt="">
-            </div>
-            <h3 class="team-card__itnumber">IT22194930</h3>
-            <h3 class="team-card__name">Peiris M. H. C.</h3>
-            <p class="team-card__role">Undergraduate Researcher</p>
-            <div class="team-card__component">🏺 Artifacts Preservation</div>
-            <p class="team-card__email">
-              <a href="mailto:it22194930@my.sliit.lk">it22194930@my.sliit.lk</a>
-            </p>
-          </div>
-
-          <!-- Member 4: Wickramasooriya -->
-          <div class="team-card reveal">
-            <div class="team-card__photo">
-              <img src="/assets/wickramasooriya.jpg" alt="">
-            </div>
-            <h3 class="team-card__itnumber">IT22126160</h3>
-            <h3 class="team-card__name">Wickramasooriya W. A. A. L.</h3>
-            <p class="team-card__role">Undergraduate Researcher</p>
-            <div class="team-card__component">🧊 3D Phonetics</div>
-            <p class="team-card__email">
-              <a href="mailto:it22126160@my.sliit.lk">it22126160@my.sliit.lk</a>
-            </p>
-          </div>
-
-         
-          
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ========== CONTACT US SECTION ========== -->
-  <section class="section" id="page-contact">
-    <div class="container">
-      <div class="section__header">
-        <span class="section__tag">✉️ Get In Touch</span>
-        <h1 class="section__title">Contact Us</h1>
-        <p class="section__subtitle">Have questions about our research? We'd love to hear from you.</p>
-      </div>
-
-      <div class="contact-section">
-        <div class="contact-grid reveal">
-          <!-- Info side -->
-          <div class="contact-info-card">
-            <div>
-              <h3>Research Collaboration</h3>
-              <p>We welcome academic collaboration, cultural partnerships, and any inquiries about the digital preservation of Vedda heritage. Reach out and let's discuss how we can work together.</p>
-            </div>
-            <div class="contact-info-items">
-              <div class="contact-info-item">
-                <div class="contact-info-item__icon">📍</div>
-                <div class="contact-info-item__text">
-                  <h4>Location</h4>
-                  <p>Sri Lanka Institute of Information Technology (SLIIT), Malabe, Sri Lanka</p>
-                </div>
+        <div class="docs-list" id="slidesList">
+          <a
+            href="https://drive.google.com/drive/folders/1fBH7fp0-nrLK8j6DkLEmVuUSVEUzlwYU?usp=sharing"
+            class="doc-item reveal"
+            id="slide-proposal"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <div class="doc-item__icon">🖥️</div>
+            <div class="doc-item__info">
+              <div class="doc-item__title">Proposal Presentation</div>
+              <div class="doc-item__meta">
+                PPTX • Initial project proposal presentation slides
               </div>
-              <div class="contact-info-item">
-                <div class="contact-info-item__icon">📧</div>
-                <div class="contact-info-item__text">
-                  <h4>Email</h4>
-                  <p>it22196910@my.sliit.lk</p>
-                </div>
+            </div>
+            <div class="doc-item__action">
+              <svg
+                width="16"
+                height="16"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
+                <polyline points="7 10 12 15 17 10" />
+                <line x1="12" y1="15" x2="12" y2="3" />
+              </svg>
+              View
+            </div>
+          </a>
+
+          <a
+            href="https://drive.google.com/drive/folders/1g-0_lMEcjjNhtn99g-pXbsEL2cOXYEMG?usp=sharing"
+            class="doc-item reveal"
+            id="slide-pp1"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <div class="doc-item__icon">🖥️</div>
+            <div class="doc-item__info">
+              <div class="doc-item__title">Progress Presentation 1</div>
+              <div class="doc-item__meta">
+                PPTX • First progress review presentation slides
               </div>
-              <div class="contact-info-item">
-                <div class="contact-info-item__icon">🌐</div>
-                <div class="contact-info-item__text">
-                  <h4>Project ID</h4>
-                  <p>25-26J-492</p>
+            </div>
+            <div class="doc-item__action">
+              <svg
+                width="16"
+                height="16"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
+                <polyline points="7 10 12 15 17 10" />
+                <line x1="12" y1="15" x2="12" y2="3" />
+              </svg>
+              View
+            </div>
+          </a>
+
+          <a
+            href="https://drive.google.com/drive/folders/1JGETp13ZVKzlcVcE_iXSpx-PbnMFlngX?usp=sharing"
+            class="doc-item reveal"
+            id="slide-pp2"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <div class="doc-item__icon">🖥️</div>
+            <div class="doc-item__info">
+              <div class="doc-item__title">Progress Presentation 2</div>
+              <div class="doc-item__meta">
+                PPTX • Second progress review presentation slides
+              </div>
+            </div>
+            <div class="doc-item__action">
+              <svg
+                width="16"
+                height="16"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
+                <polyline points="7 10 12 15 17 10" />
+                <line x1="12" y1="15" x2="12" y2="3" />
+              </svg>
+              View
+            </div>
+          </a>
+
+          <a
+            href="https://drive.google.com/drive/folders/13JZrAaNvv4PbzjR3NCdB6CtqwFGP-ndX?usp=sharing"
+            class="doc-item reveal"
+            id="slide-final"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <div class="doc-item__icon">🖥️</div>
+            <div class="doc-item__info">
+              <div class="doc-item__title">Final Presentation</div>
+              <div class="doc-item__meta">
+                PPTX • Final assessment presentation slides
+              </div>
+            </div>
+            <div class="doc-item__action">
+              <svg
+                width="16"
+                height="16"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
+                <polyline points="7 10 12 15 17 10" />
+                <line x1="12" y1="15" x2="12" y2="3" />
+              </svg>
+              View
+            </div>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== ABOUT US SECTION ========== -->
+    <section class="section" id="page-about">
+      <div class="container">
+        <div class="section__header">
+          <span class="section__tag">👥 Our Team</span>
+          <h1 class="section__title">About Us</h1>
+          <p class="section__subtitle">
+            Meet the researchers behind the digital preservation of Sri Lankan
+            Vedda culture.
+          </p>
+        </div>
+
+        <!-- Local search for team members -->
+        <div class="local-search-bar" id="aboutSearch">
+          <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/>
+          </svg>
+          <input
+            type="text"
+            id="aboutSearchInput"
+            placeholder="Search by name, role, or component…"
+            oninput="filterTeam(this.value)"
+            aria-label="Search team members"
+          />
+          <button class="local-search-bar__clear" onclick="clearLocalSearch('aboutSearchInput', filterTeam)" aria-label="Clear filter" style="display:none" id="aboutSearchClear">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+          </button>
+        </div>
+        <div id="aboutNoResults" class="search-no-results" style="display:none">No team members match your search.</div>
+
+        <div class="about-section" id="aboutSection">
+          <div class="supervisor-grid">
+            <!-- Supervisor -->
+            <div class="supervisor-card reveal">
+              <div class="supervisor-card__photo">
+                <img src="/assets/silva.jpg" alt="" />
+              </div>
+              <div class="supervisor-card__info">
+                <h3>Ms. Hansi De Silva</h3>
+                <p
+                  style="
+                    color: rgba(255, 255, 255, 0.85);
+                    font-size: 16px;
+                    margin-bottom: 4px;
+                  "
+                >
+                  Supervisor
+                </p>
+                <p>
+                  <a href="mailto:hansi.d@sliit.lk" style="color: inherit"
+                    >hansi.d@sliit.lk</a
+                  >
+                </p>
+              </div>
+            </div>
+
+            <!-- Co-Supervisor -->
+            <div class="supervisor-card reveal">
+              <div class="supervisor-card__photo">
+                <img src="/assets/jayalath.jpg" alt="" />
+              </div>
+              <div class="supervisor-card__info">
+                <h3>Ms. Thilini Jayalath</h3>
+                <p
+                  style="
+                    color: rgba(255, 255, 255, 0.85);
+                    font-size: 16px;
+                    margin-bottom: 4px;
+                  "
+                >
+                  Co-Supervisor
+                </p>
+                <p>
+                  <a href="mailto:thilini.j@sliit.lk" style="color: inherit"
+                    >thilini.j@sliit.lk</a
+                  >
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Team Members -->
+          <div class="team-grid">
+            <!-- Member 1: Welikanna -->
+            <div class="team-card reveal">
+              <div class="team-card__photo">
+                <img src="/assets/welikanna.jpg" alt="" />
+              </div>
+              <h3 class="team-card__itnumber">IT22196910</h3>
+              <h3 class="team-card__name">Welikanna S. T.</h3>
+              <p class="team-card__role">Undergraduate Researcher</p>
+              <div class="team-card__component">🎮 Gamified Learning</div>
+              <p class="team-card__email">
+                <a href="mailto:it22196910@my.sliit.lk"
+                  >it22196910@my.sliit.lk</a
+                >
+              </p>
+            </div>
+
+            <!-- Member 2: Liyanage -->
+            <div class="team-card reveal">
+              <div class="team-card__photo">
+                <img src="/assets/liyanage.jpg" alt="" />
+              </div>
+              <h3 class="team-card__itnumber">IT22144430</h3>
+              <h3 class="team-card__name">Liyanage N. S.</h3>
+              <p class="team-card__role">Undergraduate Researcher</p>
+              <div class="team-card__component">🈂️ Translator</div>
+              <p class="team-card__email">
+                <a href="mailto:it22144430@my.sliit.lk"
+                  >it22144430@my.sliit.lk</a
+                >
+              </p>
+            </div>
+
+            <!-- Member 3: Peiris -->
+            <div class="team-card reveal">
+              <div class="team-card__photo">
+                <img src="/assets/peiris.jpg" alt="" />
+              </div>
+              <h3 class="team-card__itnumber">IT22194930</h3>
+              <h3 class="team-card__name">Peiris M. H. C.</h3>
+              <p class="team-card__role">Undergraduate Researcher</p>
+              <div class="team-card__component">🏺 Artifacts Preservation</div>
+              <p class="team-card__email">
+                <a href="mailto:it22194930@my.sliit.lk"
+                  >it22194930@my.sliit.lk</a
+                >
+              </p>
+            </div>
+
+            <!-- Member 4: Wickramasooriya -->
+            <div class="team-card reveal">
+              <div class="team-card__photo">
+                <img src="/assets/wickramasooriya.jpg" alt="" />
+              </div>
+              <h3 class="team-card__itnumber">IT22126160</h3>
+              <h3 class="team-card__name">Wickramasooriya W. A. A. L.</h3>
+              <p class="team-card__role">Undergraduate Researcher</p>
+              <div class="team-card__component">🧊 3D Phonetics</div>
+              <p class="team-card__email">
+                <a href="mailto:it22126160@my.sliit.lk"
+                  >it22126160@my.sliit.lk</a
+                >
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== CONTACT US SECTION ========== -->
+    <section class="section" id="page-contact">
+      <div class="container">
+        <div class="section__header">
+          <span class="section__tag">✉️ Get In Touch</span>
+          <h1 class="section__title">Contact Us</h1>
+          <p class="section__subtitle">
+            Have questions about our research? We'd love to hear from you.
+          </p>
+        </div>
+
+        <div class="contact-section">
+          <div class="contact-grid reveal">
+            <!-- Info side -->
+            <div class="contact-info-card">
+              <div>
+                <h3>Research Collaboration</h3>
+                <p>
+                  We welcome academic collaboration, cultural partnerships, and
+                  any inquiries about the digital preservation of Vedda
+                  heritage. Reach out and let's discuss how we can work
+                  together.
+                </p>
+              </div>
+              <div class="contact-info-items">
+                <div class="contact-info-item">
+                  <div class="contact-info-item__icon">📍</div>
+                  <div class="contact-info-item__text">
+                    <h4>Location</h4>
+                    <p>
+                      Sri Lanka Institute of Information Technology (SLIIT),
+                      Malabe, Sri Lanka
+                    </p>
+                  </div>
+                </div>
+                <div class="contact-info-item">
+                  <div class="contact-info-item__icon">📧</div>
+                  <div class="contact-info-item__text">
+                    <h4>Email</h4>
+                    <p>it22196910@my.sliit.lk</p>
+                  </div>
+                </div>
+                <div class="contact-info-item">
+                  <div class="contact-info-item__icon">🌐</div>
+                  <div class="contact-info-item__text">
+                    <h4>Project ID</h4>
+                    <p>25-26J-492</p>
+                  </div>
                 </div>
               </div>
             </div>
-          </div>
 
-          <!-- Form side -->
-          <div class="contact-form-card">
-            <h3>Send a Message</h3>
-            <p>Fill out the form below and we'll get back to you as soon as possible.</p>
-            <form id="contactForm" onsubmit="handleContactSubmit(event)">
-              <div class="form-group">
-                <label for="contactName">Full Name</label>
-                <input type="text" id="contactName" name="name" placeholder="Your name" required>
-              </div>
-              <div class="form-group">
-                <label for="contactEmail">Email Address</label>
-                <input type="email" id="contactEmail" name="email" placeholder="you@example.com" required>
-              </div>
-              <div class="form-group">
-                <label for="contactSubject">Subject</label>
-                <input type="text" id="contactSubject" name="subject" placeholder="What is this regarding?">
-              </div>
-              <div class="form-group">
-                <label for="contactMessage">Message</label>
-                <textarea id="contactMessage" name="message" placeholder="Tell us more about your inquiry..." required></textarea>
-              </div>
-              <button type="submit" class="btn btn--primary btn--form">
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
-                Send Message
-              </button>
-            </form>
+            <!-- Form side -->
+            <div class="contact-form-card">
+              <h3>Send a Message</h3>
+              <p>
+                Fill out the form below and we'll get back to you as soon as
+                possible.
+              </p>
+              <form id="contactForm" onsubmit="handleContactSubmit(event)">
+                <div class="form-group">
+                  <label for="contactName">Full Name</label>
+                  <input
+                    type="text"
+                    id="contactName"
+                    name="name"
+                    placeholder="Your name"
+                    required
+                  />
+                </div>
+                <div class="form-group">
+                  <label for="contactEmail">Email Address</label>
+                  <input
+                    type="email"
+                    id="contactEmail"
+                    name="email"
+                    placeholder="you@example.com"
+                    required
+                  />
+                </div>
+                <div class="form-group">
+                  <label for="contactSubject">Subject</label>
+                  <input
+                    type="text"
+                    id="contactSubject"
+                    name="subject"
+                    placeholder="What is this regarding?"
+                  />
+                </div>
+                <div class="form-group">
+                  <label for="contactMessage">Message</label>
+                  <textarea
+                    id="contactMessage"
+                    name="message"
+                    placeholder="Tell us more about your inquiry..."
+                    required
+                  ></textarea>
+                </div>
+                <button type="submit" class="btn btn--primary btn--form">
+                  <svg
+                    width="18"
+                    height="18"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  >
+                    <line x1="22" y1="2" x2="11" y2="13" />
+                    <polygon points="22 2 15 22 11 13 2 9 22 2" />
+                  </svg>
+                  Send Message
+                </button>
+              </form>
+            </div>
           </div>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- ========== FOOTER ========== -->
-  <footer class="footer">
-    <div class="footer__inner">
-      <div class="footer__brand">
-        <div class="footer__logo"><img src="assets/logo.png" alt="Vedda Heritage Logo"></div>
-        <div class="footer__text">
-          <strong>Digital Preservation of Vedda Culture</strong><br>
-          Research Project 25-26J-492 • SLIIT
+    <!-- ========== FOOTER ========== -->
+    <footer class="footer">
+      <div class="footer__inner">
+        <div class="footer__brand">
+          <div class="footer__logo">
+            <img src="assets/logo.png" alt="Vedda Heritage Logo" />
+          </div>
+          <div class="footer__text">
+            <strong>Digital Preservation of Vedda Culture</strong><br />
+            Research Project 25-26J-492 • SLIIT
+          </div>
+        </div>
+        <div class="footer__copy">
+          &copy; 2026 Vedda Heritage Research Team. All rights reserved.
         </div>
       </div>
-      <div class="footer__copy">
-        &copy; 2026 Vedda Heritage Research Team. All rights reserved.
-      </div>
-    </div>
-  </footer>
+    </footer>
 
-  <script src="script.js"></script>
-</body>
+    <script src="script.js"></script>
+  </body>
 </html>
