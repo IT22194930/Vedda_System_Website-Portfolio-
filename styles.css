@@ -2807,6 +2807,11 @@ button:active::before {
   min-width: 0;
 }
 
+.search-modal__input:focus-visible,
+.local-search-bar input:focus-visible {
+  outline: none;
+}
+
 .search-modal__input::placeholder {
   color: var(--sand-400);
 }
